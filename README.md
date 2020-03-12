@@ -1,3 +1,5 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/aws-samples/sagemaker-workshop) 
+
 # Amazon SageMaker Workshop
 
 The Amazon SageMaker Workshop is publicly available at https://sagemaker-workshop.com/. 
