@@ -1,0 +1,30 @@
+baseURL = "https://sagemaker-workshop.com"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "Amazon SageMaker Workshop"
+theme = "learn"
+uglyurls = true
+googleAnalytics = "UA-119576367-1"
+
+[blackfriday]
+hrefTargetBlank = true
+
+[params]
+themeVariant = "mine"
+showVisitedLinks = false
+author = "Daniele Stroppa"
+description = "Amazon SageMaker Workshop"
+disableSearch = false
+disableAssetsBusting = false
+disableLanguageSwitchingButton = true
+disableShortcutsTitle=true
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-twitter fa-lg'></i> @moviolone"
+identifier = "tw"
+url = "https://twitter.com/intent/user?screen_name=moviolone"
+weight = 1
+
+[outputs]
+home = [ "HTML", "AMP", "RSS", "JSON"]
+page = [ "HTML", "AMP"]

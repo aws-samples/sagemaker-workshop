@@ -1,0 +1,25 @@
+{
+	"name": "ecsworkshop",
+	"version": "1.0.0",
+	"homepage": "https://github.com/brentley/ecsworkshop#readme",
+	"bugs": {
+		"url": "https://github.com/brentley/ecsworkshop/issues"
+	},
+	"license": "ISC",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/brentley/ecsworkshop.git"
+	},
+	"scripts": {
+		"test": "hugo server -w -v -DF --disableFastRender --enableGitInfo --bind=0.0.0.0",
+		"server": "hugo server -w -v --enableGitInfo --bind=0.0.0.0",
+		"build": "hugo -v",
+		"deploy": "aws s3 sync public/ s3://us-east-1-ecsworkshop.com/ --delete",
+		"deploycontent": "aws s3 sync public/ s3://us-east-1-ecsworkshop.com/ --delete --cache-control \"max-age=3600, public\" --exclude \"*\" --include \"*.html\" --include \"*.xml\"",
+		"deployothers": "aws s3 sync public/ s3://us-east-1-ecsworkshop.com/ --delete --cache-control \"max-age=86400, public\" --exclude \"*.html\" --exclude \"*.xml\""
+	},
+	"dependencies": {
+		"hugo-lunr": "0.0.4"
+	}
+}

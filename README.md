@@ -1,11 +1,36 @@
-## My Project
+# Amazon SageMaker Workshop
 
-TODO: Fill this README out!
+The Amazon SageMaker Workshop is publicly available at https://sagemaker-workshop.com/. 
 
-Be sure to:
+### Setup:
 
-* Change the title in this README
-* Edit your repository description on GitHub
+#### Install Hugo:
+On a mac:
+
+`brew install hugo`
+
+On Linux:
+  - Download from the releases page: https://github.com/gohugoio/hugo/releases/tag/v0.37
+  - Extract and save the executable to `/usr/local/bin`
+
+#### Install node packages:
+`npm install`
+
+#### Run Hugo locally:
+`npm run server`
+or
+`npm run test` to see stubbed in draft pages.
+
+#### View Hugo locally:
+Visit http://localhost:1313/ to see the site.
+
+#### Making Edits:
+As you save edits to a page, the site will live-reload to show your changes.
+
+#### Auto Deploy:
+Any commits to master will auto build and deploy in a couple of minutes. You can see the currently deployed hash at the bottom of the menu panel.
+
+note: shift-reload may be necessary in your browser to reflect the latest changes.
 
 ## License Summary
 
