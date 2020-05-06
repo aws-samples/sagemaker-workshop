@@ -91,13 +91,13 @@ $ git log --pretty=oneline # you should see two logs for both commits.
 ```
 You should see a log containing your commitIDs. We will now load this Commit metadata to SageMaker Experiments for tracking.
 
-Now go back to the 02_SageMaker-DevOps-Workflow and enter your commitIDs in the sclineage and endpointlineage, and execute the next cell.
+Now go back to the `02_SageMaker-DevOps-Workflow.ipynb` and enter your commitIDs in the `sclineage` and `endpointlineage`, and execute the next cell.
 
 You should see a dataframe containing the lineage history of your Preprocessing job, Experiments, as well as the Commit information to Git. 
 
-This can now be fed into a database for tracking metadata associated with any model training jobs to maintain model governance and provenance by combining SageMaker Experiments training jobs tracking with Git/CodeCommit source and version control APIs.
+This can now be fed into a database for tracking metadata associated with any model training jobs to maintain model governance and provenance by combining SageMaker Experiments training jobs tracking with Git / CodeCommit source and version control APIs.
 
 ## Takeaways
 
-Having completed the steps in both notebooks, you have learned how to build, train, deploy, monitor models using Amazon SageMaker with security best practices. 
+Having completed the steps in both notebooks, you have learned how to build, train, deploy, and monitor models using Amazon SageMaker with security best practices. 
 
