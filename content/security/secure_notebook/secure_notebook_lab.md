@@ -65,7 +65,7 @@ When its open the Notebook kernel should use the `conda_python3` kernel.  If Jup
 
 This lab comprises of two noteboks: the first: `01_SageMaker-DataScientist-Workflow.ipynb` will cover a typical Data Scientist workflow and show you how to explore data, pre-process data, train an XGBoost model using a custom container and explore feature importances for that model in a secure manner, maintaining network traffic via our private VPC and enforing encryption at rest and in transit. Furthermore, you will learn how to using SageMaker Processing for running processing jobs at scale, and leverage Spot instance pricing to save on training costs.
 
-In the second notebook, '02_SageMaker-DevOps-Workflow', we will deploy the trained model from the SageMaker notebook to production and monitor the endpoint for data drift using ModelMonitor. Finally we will use SageMaker Experiments to track any model metadata, code commits etc from our repo to trace the lineage of our models and endpoints.
+In the second notebook, `02_SageMaker-DevOps-Workflow`, we will deploy the trained model from the SageMaker notebook to production and monitor the endpoint for data drift using ModelMonitor. Finally we will use SageMaker Experiments to track any model metadata, code commits etc from our repo to trace the lineage of our models and endpoints.
 
 
 Execute the steps in each of the cells of both notebooks carefully reading the Markdown as you work through these notebooks. 
