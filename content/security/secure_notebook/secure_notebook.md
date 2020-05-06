@@ -81,9 +81,7 @@ The IAM policy above states that someone can only communicate with a Notebook if
 
 ## Version Control
 
-Finally, it is extremely important for data scientists to maintain a code repo for managing and maintaining source code and version control. We have included a CodeCommit Repository which will be automatically added to this notebook instance for versioning any code.
-The code repo is already configured for use with the account and data scientists can simply push or pull code from the repo as desired. Here we will push and tag our code to the master branch of our code repo.
-
+Finally, to support collaboration, SageMaker notebooks can be integrated with Git-based repositories.  Git is a distributed version control system which enables project teams to manage source code, notebook files, and other artifacts related to a project.  In the next lab the notebook you create will be configured to use a CodeCommit repository as a way of managing the sample project provided.  In this lab you will push and tag the code to the master branch of the code repository using the CLI or Jupyter UI. 
 
 ---
 
