@@ -65,16 +65,15 @@ When its open the Notebook kernel should use the `conda_python3` kernel.  If Jup
 
 This lab comprises of two noteboks: the first: `01_SageMaker-DataScientist-Workflow.ipynb` will cover a typical Data Scientist workflow and show you how to explore data, pre-process data, train an XGBoost model using a custom container and explore feature importances for that model in a secure manner, maintaining network traffic via our private VPC and enforing encryption at rest and in transit. Furthermore, you will learn how to using SageMaker Processing for running processing jobs at scale, and leverage Spot instance pricing to save on training costs.
 
-In the second notebook, `02_SageMaker-DevOps-Workflow`, we will deploy the trained model from the SageMaker notebook to production and monitor the endpoint for data drift using ModelMonitor. Finally we will use SageMaker Experiments to track any model metadata, code commits etc from our repo to trace the lineage of our models and endpoints.
-
+In the second notebook, `02_SageMaker-DevOps-Workflow.ipynb`, we will deploy the trained model from the SageMaker notebook to production and monitor the endpoint for data drift using ModelMonitor. Finally we will use SageMaker Experiments to track any model metadata, code commits etc from our repo to trace the lineage of our models and endpoints.
 
 Execute the steps in each of the cells of both notebooks carefully reading the Markdown as you work through these notebooks. 
 
-Once you complete the 01_... notebook, move on to 02_, and execute the cells there until you reach **Part 8:Reproducibility**
+Once you complete the `01_SageMaker-DataScientist-Workflow.ipynb` notebook, move on to `02_SageMaker-DevOps-Workflow.ipynb`, and execute the cells there until you reach **Part 8:Reproducibility**
 
 ## Part 8: Reproducibility (Optional)
 
-In the last part of Notebook 2, we will output a dataframe that contains the lineage of our trained model, tagging the Git Commits. To do so, we first need to commit something to Github. Here we will mimic the data scientist commiting their training code to Git and the DevOps Engineer commiting their deployment code to Git. 
+In the last part of Notebook 2, we will output a dataframe that contains the lineage of our trained model, tagging the Git Commits. To do so, we first need to commit something to CodeCommit. Here we will mimic the data scientist commiting their training code to Git and the DevOps Engineer commiting their deployment code to Git. 
 
 Navigate to your Jupyter environment which contains these notebooks and the code. In the drop down **New**, click on **Terminal**.
 
