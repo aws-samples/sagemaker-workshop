@@ -33,7 +33,7 @@ The very nature of software development means that users can obtain some OS-leve
 
 ### Further tailoring
 
-In addition to the measures described above you also have the ability to specify Lifecycle Configurations.  These are shell scripts which execute on system bootstrap, before the notebook is made available to users.  These configuration scripts can execute on system creation, system startup, or both.  Using these scripts you can ensure that monitoring agents are installed or other types of hardening are performed to ensure that the system is in a specific state before allowing users to access the system.
+In addition to the measures described above you also have the ability to specify Lifecycle Configurations.  These are shell scripts which execute on system bootstrap, before the notebook is made available to users.  These configuration scripts can execute on system creation, system startup, or both.  Using these scripts you can ensure that monitoring agents are installed or other types of hardening are performed to ensure that the system is in a specific state before allowing users to access the system. Here we will use the lifecycle scripts to download some open source libraries from the pip mirror we created, create an sagemaker_environment.py file to keep track of variables such as the network configuration, KMS keys that can be imported directly, without giving the datascientist access to them.
 
 ## Managed and Governed
 
@@ -78,6 +78,12 @@ Access to a SageMaker Jupyter notebook instance is goverend by AWS IAM.  In orde
 ```
 
 The IAM policy above states that someone can only communicate with a Notebook if they do so from within a VPC and through specific VPC endpoints.  Using mechanisms like the above you can explicitly control who can interact with a Notebook server.  
+
+## Version Control
+
+Finally, it is extremely important for data scientists to maintain a code repo for managing and maintaining source code and version control. We have included a CodeCommit Repository which will be automatically added to this notebook instance for versioning any code.
+The code repo is already configured for use with the account and data scientists can simply push or pull code from the repo as desired. Here we will push and tag our code to the master branch of our code repo.
+
 
 ---
 

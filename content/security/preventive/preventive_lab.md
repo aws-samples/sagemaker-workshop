@@ -68,7 +68,7 @@ Now with a new version of the product defined turn to the [Provisioned Products 
     ![Wait for Update to Complete](/images/update_provisioned_product.png)
 {{% /expand %}}
 
-After the product has been successfully updated resume the role of [Data Scientist](https://signin.aws.amazon.com/switchrole?account=000000000000&roleName=DataScientist&displayName=DataScientist) and revist the Jupyter notebook kernel and execute the cell titled **Train again without a VPC**.  You should now quickly receive an Access Denied exception similar to the below:
+After the product has been successfully updated resume the role of [Data Scientist](https://signin.aws.amazon.com/switchrole?account=000000000000&roleName=DataScientist&displayName=DataScientist) and revist the Jupyter notebook kernel and execute the cell titled **Train Without VPC Configured**.  You should now quickly receive an Access Denied exception similar to the below:
 
 ```bash
 ClientError: An error occurred (AccessDeniedException) when calling the CreateTrainingJob operation: User: arn:aws:sts::012348485732:assumed-role/SageMakerExecRole-ml-product-team/SageMaker is not authorized to perform: sagemaker:CreateTrainingJob on resource: arn:aws:sagemaker:eu-west-1:012348485732:training-job/sagemaker-tensorflow-2019-10-16-22-14-30-880 with an explicit deny

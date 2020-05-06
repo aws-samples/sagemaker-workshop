@@ -4,29 +4,27 @@ chapter = false
 weight = 41
 +++
 
-In this lab you will test a remediating detective control that was deployed by the cloud platform engineering team in Lab 1.  The control is designed to detect the creation of Amazon SageMaker training jobs outside of the secure data science VPC and terminate them.  To do this, you will go through the Jupyter notebook kernel *stockmarket_predictor_v5* and execute the cells up to and including the creation of a training job.  You'll notice, as the training job is provisioned and begins to execute, that it is terminated by the corrective aspect of the control in the environment.
+In this lab you will test a remediating detective control that was deployed by the cloud platform engineering team in Lab 1.  The control is designed to detect the creation of Amazon SageMaker training jobs outside of the secure data science VPC and terminate them.  To do this, you will go through the Jupyter notebook kernel *01_SageMaker-Demo-ModelMonitor* and execute the cells up to and including the creation of a training job.  You'll notice, as the training job is provisioned and begins to execute, that it is terminated by the corrective aspect of the control in the environment.
 
 ---
 
 ## Start a training job
 
-As the data scientist, read through and execute the cells in the Jupyter Notebook kernel named `stockmarket_predictor_v5.ipynb`.  These various cells will:
+As the data scientist, read through and execute the cells in the Jupyter Notebook kernel named `01_SageMaker-DataScientist-Workflow.ipynb`.  These various cells will:
 
  - set variables to reference the *data* and *model* Amazon S3 buckets that the data science administrator created for your team
  - copy training data to your local Jupyter notebook
+ - preprocess the data locally and using SageMaker Processing and
  - push processed training data to your *data* S3 bucket
- - create a TensorFlow script to train a model
+ - deploy your training container to ECR
  - configure a training job to be executed by you
-
-{{% notice note %}}
-Be sure and place the names of your *data* and *model* buckets into the `TEAM_DATA_BUCKET` and `TEAM_MODEL_BUCKET` variables in the cell titled **Pre-requisites**.  If you don't know the name of your Amazon S3 buckets, created earlier by the Data Science Administrator, they should follow a pattern of `sagemakerworkshop-data-<YOUR-TEAM-NAME>` and `sagemakerworkshop-model-<YOUR-TEAM-NAME>`.  To confirm your bucket names visit the [S3 console](https://console.aws.amazon.com/s3/home) and find your *data* and *model* buckets.
-{{% /notice %}}
+ - Use SageMaker Experiments to track metadata of your training jobs
+ - Use shap library to explain feature importances from your trained model
 
 When you reach the cell titled **Train without a VPC configured**, execute the cell and take note of the output.  After a few minutes you should notice that the training job was terminated.  The output should resemble the below which indicates that the training job did not complete its bootstrap.
 
 {{% expand "Step-by-step instructions" %}}
-1. Begin at the JupyterLabs interface of your notebook instance and execute the first 2 cells of the notebook kernel.
-1. When you reach the cell titled **Pre-requisites** you will see two variables defined in the python code: `TEAM_DATA_BUCKET` and `TEAM_MODEL_BUCKET`.  These variables refer to the Amazon S3 buckets created earlier when the data scientist administrator provisioned team resources.  You can reference back to the CloudFormation template to find the name of the resource buckets if you don't remember them.  They should follow a format such as `sagemakerworkshop-data-<YOUR-TEAM-NAME>` and `sagemakerworkshop-model-<YOUR-TEAM-NAME>`.
+1. Begin at the JupyterLabs interface of your notebook instance and execute the first cells of the notebook kernel
 1. After you have set the values for these two variables execute the cells up to and including the cell titled **Train without a VPC configured**.
 1. Watch the output of the training as it executes, and notice the job does not complete its bootstrap.
 {{% /expand %}}
@@ -47,15 +45,18 @@ training completed.
 
 The training job was terminated by an AWS Lambda function that was executed in response to a CloudWatch Event that was triggered when the training job was created.  The Lambda function inspected the training job, saw that it was NOT attached to a VPC and stopped the training job from executing.  
 
-Assume the role of the Data Science Administrator and review the code of the [AWS Lambda function SagemakerTrainingJobVPCEnforcer](https://console.aws.amazon.com/lambda/home?#/functions/SagemakerTrainingJobVPCEnforcer?tab=configuration). Also review the [CloudWatch Event rule SagemakerTrainingJobVPCEnforcementRule](https://console.aws.amazon.com/cloudwatch/home?#rules:name=SagemakerTrainingJobVPCEnforcementRule) and take note of the event which triggers execution of the Lambda function.
+Assume the role of the Data Science Administrator and review the code of the [AWS Lambda function SagemakerTrainingJobVPCEnforcer]
+(https://console.aws.amazon.com/lambda/home?#/functions/SagemakerTrainingJobVPCEnforcer?tab=configuration).
+ Also review the [CloudWatch Event rule SagemakerTrainingJobVPCEnforcementRule](https://console.aws.amazon.com/cloudwatch/home?#rules:name=SagemakerTrainingJobVPCEnforcementRule) and
+ take note of the event which triggers execution of the Lambda function.
 
 ---
 
 ## Start a compliant training job
 
-To succesfully run your training job you will need to configure the training job to run within your VPC.  To do this you will pass a collection of subnet IDs and security groups to the training job using the SageMaker SDK from your notebook. 
+To succesfully run your training job you will need to configure the training job to run within your VPC.  To do this you will pass a collection of subnet IDs and security groups that we imported earlier. 
 
-Visit the [Parameter Store](https://console.aws.amazon.com/systems-manager/parameters) and copy the values stored for `PrivateSubnetAId`, `PrivateSubnetBId`, and `SageMakerSecurityGroupId`.  Then, using the [SageMaker SDK documentation](https://sagemaker.readthedocs.io/en/stable/estimators.html), modify the Python code in the cell titled **Training with VPC attachment** to configure the estimator with the subnet and security group values captured from the Parameter Store.  
+An example of some sample code showing how these get imported is shown here:
 
 ```python
 TensorFlow(entry_point='predictor.py',
@@ -80,17 +81,16 @@ When the code has been modified execute the cell, the training job should comple
 2019-10-16 20:00:25,727 INFO - container_support.training - Training starting
 ```
 
-{{% expand "Step-by-step instructions" %}}
-1. Copy the values for approved VPC subnets stored into Parameter Store as [PrivateSubnetAId](https://console.aws.amazon.com/systems-manager/parameters/PrivateSubnetAId/description?) and [PrivateSubnetBId](https://console.aws.amazon.com/systems-manager/parameters/PrivateSubnetBId/description).  
-1. Copy the approved security group ID stored as [SageMakerSecurityGroupId](https://console.aws.amazon.com/systems-manager/parameters/SageMakerSecurityGroupId/description?).
-1. Once you have the values you need for security groups and subnets return to the Jupyter notebook kernel.
-1. Modify the cell titled **Training with VPC Attachment** which re-defines the TensorFlow estimator.  
-1. Add parameters to the estimator definition similar to the above, passing in the `subnets` and `security_group_ids` values to configure the estimator for [VPC attachment](https://sagemaker.readthedocs.io/en/stable/estimators.html).
-1. Execute the cell to create a new training job. 
-{{% /expand %}}
-
 ---
 
 In this lab, you experienced a remediating detective control deployed by the cloud platform engineering team and reconfigured the SageMaker training job to run connected to your VPC.  But waiting minutes to find out that your training job is going to error out is a slow and painful way to iterate during development.  
 
-In the next lab we will implement a preventive control to make such an error immediately evident.
+Finish executing the rest of the cells in the notebook.
+
+Once you are done with this notebook, run through the second notebook 02_SageMaker-DevOps-Workflow. In this notebook, we will explore a different form of detective control: Model Monitoring.
+
+Model Monitoring is key to ensuring that our production endpoints are monitored against data drift or concept drift where the data or label distribution changes over time, degrading model performance. Run through the cells in the notebook to set up a production endpoint and deploy ModelMonitoring against this endpoint.
+
+Once you are done with this, be sure to delete your endpoints and ModelMonitoring to avoid racking up any costs. 
+
+You may  also proceed to the optional Lab on Preventative Controls. 
