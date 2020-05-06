@@ -77,33 +77,17 @@ In the last part of Notebook 2, we will output a dataframe that contains the lin
 
 Navigate to your Jupyter environment which contains these notebooks and the code. In the drop down **New**, click on **Terminal**.
 
-In the Terminal window, navigate to the local directory containing your notebooks and run the following cells. 
+In the Terminal window, change directory to the directory for your project source code.  This will be a directory similar to `/home/ec2-user/SageMaker/ds-source-MyProject-MyEnv`.  From this directory execute the following commands: 
 
 ```bash
-
-1. cd SageMaker/<your local folder containing the notebooks>
-
-
-2. git add 01_SageMaker-DataScientist-Workflow
-
-
-3. git commit -m "Added Trained model" 
-
-
-4. git push -u origin master
-
-
-5. git add 02_SageMaker-DevOps-Workflow
-
-
-6. git commit -m  "Added Model Deployment Notebook"
-
-
-7. git push -u origin master
-
-
-8. git log --pretty=oneline # you should see two logs for both commits. 
-
+$ cd ~/SageMaker/< your project source directory >
+$ git add 01_SageMaker-DataScientist-Workflow.ipynb
+$ git commit -m "Added Trained model" 
+$ git push -u origin master
+$ git add 02_SageMaker-DevOps-Workflow.ipynb
+$ git commit -m  "Added Model Deployment Notebook"
+$ git push -u origin master
+$ git log --pretty=oneline # you should see two logs for both commits. 
 ```
 You should see a log containing your commitIDs. We will now load this Commit metadata to SageMaker Experiments for tracking.
 
