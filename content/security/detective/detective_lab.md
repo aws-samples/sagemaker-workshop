@@ -4,13 +4,13 @@ chapter = false
 weight = 41
 +++
 
-In this lab you will test a remediating detective control that was deployed by the cloud platform engineering team in Lab 1.  The control is designed to detect the creation of Amazon SageMaker training jobs outside of the secure data science VPC and terminate them.  To do this, you will go through the Jupyter notebook kernel *01_SageMaker-Demo-ModelMonitor* and execute the cells up to and including the creation of a training job.  You'll notice, as the training job is provisioned and begins to execute, that it is terminated by the corrective aspect of the control in the environment.
+In this lab you will test a remediating detective control that was deployed by the cloud platform engineering team in Lab 1.  The control is designed to detect the creation of Amazon SageMaker training jobs outside of the secure data science VPC and terminate them.  To do this, you will go through the Jupyter notebook kernel *00_SageMaker-SysOps-Workflow* and execute the cells up to and including the creation of a training job.  You'll notice, as the training job is provisioned and begins to execute, that it is terminated by the corrective aspect of the control in the environment.
 
 ---
 
 ## Start a training job
 
-As the data scientist, read through and execute the cells in the Jupyter Notebook kernel named `01_SageMaker-DataScientist-Workflow.ipynb`.  These various cells will:
+As the data scientist, read through and execute the cells in the Jupyter Notebook kernel named `00_SageMaker-SysOps-Workflow.ipynb`.  These various cells will:
 
  - set variables to reference the *data* and *model* Amazon S3 buckets that the data science administrator created for your team
  - copy training data to your local Jupyter notebook
