@@ -54,7 +54,7 @@ After the notebook has launched successfully you can open it by visiting the [Sa
 {{% expand "Step-by-step instructions" %}}
 1. When your Notebook has been created access the list of running Notebook instances on the [SageMaker console](https://console.aws.amazon.com/sagemaker/home?#/notebook-instances).  
 1. Open your notebook by clicking `Open JupyterLab`.
-1. With the notebook open, launch the Notebook kernel listed on the left hand side named `01_SageMaker-DataScientist-Workflow.ipynb`.
+1. With the notebook open, launch the Notebook kernel listed on the left hand side named `00_SageMaker-SysOps-Workflow.ipynb`.
 {{% /expand %}}
 
 {{% notice info %}}
