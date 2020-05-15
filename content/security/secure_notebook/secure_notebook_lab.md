@@ -49,7 +49,7 @@ Similarly, data scientists should not get S3 full access as we have done here. W
 
 
 ## Access the notebook
-After the notebook has launched successfully you can open it by visiting the [SageMaker console](https://console.aws.amazon.com/sagemaker/home).  With your Jupyter notebook open, familiarize yourself with the web interface and open the Notebook kernel named `01_SageMaker-DataScientist-Workflow.ipynb`.  Don't forget to reference back to the [Jupyter cheat sheet](https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet) for a quick reference.
+After the notebook has launched successfully you can open it by visiting the [SageMaker console](https://console.aws.amazon.com/sagemaker/home).  With your Jupyter notebook open, familiarize yourself with the web interface and open the Notebook kernel named `00_SageMaker-SysOps-Workflow`.  Don't forget to reference back to the [Jupyter cheat sheet](https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet) for a quick reference.
 
 {{% expand "Step-by-step instructions" %}}
 1. When your Notebook has been created access the list of running Notebook instances on the [SageMaker console](https://console.aws.amazon.com/sagemaker/home?#/notebook-instances).  
@@ -63,39 +63,11 @@ When its open the Notebook kernel should use the `conda_python3` kernel.  If Jup
 
 ![Jupyter Notebook Interface](/images/jupyter_notebook.png)
 
-This lab comprises of two noteboks: the first: `01_SageMaker-DataScientist-Workflow.ipynb` will cover a typical Data Scientist workflow and show you how to explore data, pre-process data, train an XGBoost model using a custom container and explore feature importances for that model in a secure manner, maintaining network traffic via our private VPC and enforing encryption at rest and in transit. Furthermore, you will learn how to using SageMaker Processing for running processing jobs at scale, and leverage Spot instance pricing to save on training costs.
+Execute the steps in each of the cells of both notebooks carefully reading the Markdown as you work through these notebooks until you get to ## Lab 4: Train Without VPC Configured. 
 
-In the second notebook, `02_SageMaker-DevOps-Workflow.ipynb`, we will deploy the trained model from the SageMaker notebook to production and monitor the endpoint for data drift using ModelMonitor. Finally we will use SageMaker Experiments to track any model metadata, code commits etc from our repo to trace the lineage of our models and endpoints.
+Navigate to Lab 4 to understand the ReadMe prior to executing the lab.
 
-Execute the steps in each of the cells of both notebooks carefully reading the Markdown as you work through these notebooks. 
-
-Once you complete the `01_SageMaker-DataScientist-Workflow.ipynb` notebook, move on to `02_SageMaker-DevOps-Workflow.ipynb`, and execute the cells there until you reach **Part 8:Reproducibility**
-
-## Part 8: Reproducibility (Optional)
-
-In the last part of Notebook 2, we will output a dataframe that contains the lineage of our trained model, tagging the Git Commits. To do so, we first need to commit something to CodeCommit. Here we will mimic the data scientist commiting their training code to Git and the DevOps Engineer commiting their deployment code to Git. 
-
-Navigate to your Jupyter environment which contains these notebooks and the code. In the drop down **New**, click on **Terminal**.
-
-In the Terminal window, change directory to the directory for your project source code.  This will be a directory similar to `/home/ec2-user/SageMaker/ds-source-MyProject-MyEnv`.  From this directory execute the following commands: 
-
-```bash
-$ cd ~/SageMaker/< your project source directory >
-$ git add 01_SageMaker-DataScientist-Workflow.ipynb
-$ git commit -m "Added Trained model" 
-$ git push -u origin master
-$ git add 02_SageMaker-DevOps-Workflow.ipynb
-$ git commit -m  "Added Model Deployment Notebook"
-$ git push -u origin master
-$ git log --pretty=oneline # you should see two logs for both commits. 
-```
-You should see a log containing your commitIDs. We will now load this Commit metadata to SageMaker Experiments for tracking.
-
-Now go back to the `02_SageMaker-DevOps-Workflow.ipynb` and enter your commitIDs in the `sclineage` and `endpointlineage`, and execute the next cell.
-
-You should see a dataframe containing the lineage history of your Preprocessing job, Experiments, as well as the Commit information to Git. 
-
-This can now be fed into a database for tracking metadata associated with any model training jobs to maintain model governance and provenance by combining SageMaker Experiments training jobs tracking with Git / CodeCommit source and version control APIs.
+Once that is complete, finish the rest of this notebook. 
 
 ## Takeaways
 
