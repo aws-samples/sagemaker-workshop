@@ -10,7 +10,7 @@ The cloud platform enineering team have now minted a new secure environment for 
 
 ## Enable the data science team
 
-Assume the role of the [Data Science Administrator](https://signin.aws.amazon.com/switchrole?account=000000000000&roleName=DataScientistAdmin&displayName=DataScienceAdmin) and using the [Service Catalog](https://console.aws.amazon.com/servicecatalog/home?#/products) launch the **SageMakerNotebookExeRole** product.  After the product has launched create a Service Catalog portfolio specifically for the data science team.
+Assume the role of the [Data Science Administrator](https://signin.aws.amazon.com/switchrole?account=000000000000&roleName=DataScientistAdmin&displayName=DataScienceAdmin) and using the [Service Catalog](https://console.aws.amazon.com/servicecatalog/home?#/products) launch the **Data Science Project Environment** product.  After the product has launched create a Service Catalog portfolio specifically for the data science team.
 
 {{% expand "Step-by-step instructions" %}}
 1. Assume the role of the [Data Science Administrator](https://signin.aws.amazon.com/switchrole?account=000000000000&roleName=DataScientistAdmin&displayName=DataScienceAdmin) 
