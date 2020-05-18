@@ -6,12 +6,12 @@ weight = 61
 
 In Lab 4, you tested out a remediating detective control that is triggered when a SageMaker training job is launched outside of the VPC. But waiting minutes to find out that your training job is going to error out is not a great experience for the data scientists.  In this lab, you will implement a preventive control that will prevent a training job from starting if it's not launched within a VPC.  In the interest of defence in depth we will now implement the preventive control to complement the detective control exercised in the previous lab.
 
-To deploy a preventive control, assume the role of the [Data Science Administrator](https://signin.aws.amazon.com/switchrole?account=000000000000&roleName=DataScientistAdmin&displayName=DataScienceAdmin) and create a new version of the [SageMakerNotebookExeRole](https://console.aws.amazon.com/servicecatalog/home?isSceuc=false&#admin-products), updating it with one of the CloudFormation templates referenced below in Amazon S3.
+To deploy a preventive control, assume the role of the [Data Science Administrator](https://signin.aws.amazon.com/switchrole?account=000000000000&roleName=DataScientistAdmin&displayName=DataScienceAdmin) and create a new version of the [Data Science Project Environment](https://console.aws.amazon.com/servicecatalog/home?isSceuc=false&#admin-products), updating it with one of the CloudFormation templates referenced below in Amazon S3.
 
 {{% expand "Step-by-step instructions" %}}
 1. The preventive control will be a modified IAM policy associated with the exeuction role of the SageMaker notebook instance.  To modify the role we will first need to assume the role of the Data Science Administrator. 
 1. Next visit the Products tab on the [Service Catalog Product Administration console](https://console.aws.amazon.com/servicecatalog).
-1. Open the `SageMakerNotebookExeRole` and click `Create new version`.
+1. Open the `Data Science Project Environment` and click `Create new version`.
 
     ![Product Version](/images/product_version.png)
 
@@ -22,37 +22,37 @@ To deploy a preventive control, assume the role of the [Data Science Administrat
  - Ireland (eu-west-1)
 
     ```
-    https://sagemaker-workshop-cloudformation-eu-west-1.s3.amazonaws.com/execution_role_product_preventive.json
+    https://sagemaker-workshop-cloudformation-eu-west-1.s3.amazonaws.com/ds_notebook.yaml
     ```
 
  - London (eu-west-2)
 
     ```
-    https://sagemaker-workshop-cloudformation-eu-west-2.s3.amazonaws.com/execution_role_product_preventive.json
+    https://sagemaker-workshop-cloudformation-eu-west-2.s3.amazonaws.com/ds_notebook.yaml
     ```
 
  - Sydney (ap-southeast-2)
 
     ```
-    https://sagemaker-workshop-cloudformation-ap-southeast-2.s3.amazonaws.com/execution_role_product_preventive.json
+    https://sagemaker-workshop-cloudformation-ap-southeast-2.s3.amazonaws.com/ds_notebook.yaml
     ```
 
  - Oregon (us-west-2)
 
     ```
-    https://sagemaker-workshop-cloudformation-us-west-2.s3.amazonaws.com/execution_role_product_preventive.json
+    https://sagemaker-workshop-cloudformation-us-west-2.s3.amazonaws.com/ds_notebook.yaml
     ```
 
  - N. Virginia (us-east-1)
 
     ```
-    https://sagemaker-workshop-cloudformation-us-east-1.s3.amazonaws.com/execution_role_product_preventive.json
+    https://sagemaker-workshop-cloudformation-us-east-1.s3.amazonaws.com/ds_notebook.yaml
     ```
 
  - Ohio (us-east-2)
 
     ```
-    https://sagemaker-workshop-cloudformation-us-east-2.s3.amazonaws.com/execution_role_product_preventive.json
+    https://sagemaker-workshop-cloudformation-us-east-2.s3.amazonaws.com/ds_notebook.yaml
     ```
 
 Now with a new version of the product defined turn to the [Provisioned Products console](https://console.aws.amazon.com/servicecatalog/home?#/stacks) and update the execution role created earlier to the latest version you just created.
