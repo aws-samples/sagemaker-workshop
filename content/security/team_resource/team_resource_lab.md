@@ -16,11 +16,11 @@ Assume the role of the [Data Science Administrator](https://signin.aws.amazon.co
 1. Assume the role of the [Data Science Administrator](https://signin.aws.amazon.com/switchrole?account=000000000000&roleName=DataScientistAdmin&displayName=DataScienceAdmin) 
 For the `Account` field enter your 12-digit AWS account ID.  You can find it on the [My Account](https://console.aws.amazon.com/billing/home?#/account) page.
 1. Open the [Service Catalog](https://console.aws.amazon.com/servicecatalog/home?#/products) product listing.
-1. Open the menu for the SageMakerNotebookExeRole product and click `Launch Product`
+1. Open the menu for the Data Science Project Environment product and click `Launch Product`
 
     ![Provision Notebook Execution Role](/images/launch_sagemaker_role.png)
 
-1. Give the product a name such as `ml-product-team-nb-role` (LOWER CASE ONLY), click `Next` and then enter a unique `TeamName` such as `team-<PRODUCT NAME>` or a similar value of your choosing.
+1. Give the product a name such as `<your name>-sagemaker-demo` (LOWER CASE ONLY), click `Next` and then enter a unique `TeamName` such as `team-<PRODUCT NAME>` or a similar value of your choosing.
 1. Click `Next` on the next 3 screens and then click `Launch`.  
 1. You will land on a Provisioned Product page and can periodically click the Refresh button to see the status of the product deployment.
 
