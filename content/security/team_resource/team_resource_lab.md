@@ -33,33 +33,6 @@ For the `Account` field enter your 12-digit AWS account ID.  You can find it on 
 {{% /expand %}}
 
 ---
-
-With the role created it's now time to create resources for a data science product team.  The team will need Amazon S3 buckets, KMS encryption keys, and a Service Catalog Portfolio to self-service and create Jupyter notebooks.  To create these resources use the **Deploy to AWS** button for your region below to launch a CloudFormation template.  Please ensure that the same Team Name that was specified in Service Catalog above is used now with CloudFormation.
-
-As in the previous step all of the parameters should have reasonable defaults but you can change them to your preference provided those changes are in line with the stack deployment in Lab 1.
-
-{{% expand "Step-by-step instructions" %}}
-1. Click **Deploy to AWS** for one of the AWS regions below, ensure it is the same region that you used in Lab 1.
-1. Enter the **Team Name** you chose in the steps above under **Team Configuration**
-1. Click **Create stack** 
-
-You will be redirected to the CloudFormation console where you can see it provisioning resources on your behalf.  When it shows **CREATE_COMPLETE** for the status you can proceed to the next step.
-{{% /expand %}}
-
-{{% notice info %}}
-Be sure and launch into the same region you used during the previous step and use the same team name as defined above.
-{{% /notice %}}
-
-| Region | Launch Template |
-|:---:|:---|
-| Oregon (us-west-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=sagemaker-security-team-resources&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-west-2/team_resources.json&param_ProductS3Bucket=sagemaker-workshop-cloudformation-us-west-2&param_TeamName=team-<PRODUCT NAME>" icon="fas fa-play" %}} Deploy to AWS Oregon {{% /button %}} |
-| Ohio (us-east-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?stackName=sagemaker-security-team-resources&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-2/team_resources.json&param_ProductS3Bucket=sagemaker-workshop-cloudformation-us-east-2&param_TeamName=team-<PRODUCT NAME>" icon="fas fa-play" %}} Deploy to AWS Ohio {{% /button %}} |
-| N. Virginia (us-east-1) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=sagemaker-security-team-resources&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-1/team_resources.json&param_ProductS3Bucket=sagemaker-workshop-cloudformation-us-east-1&param_TeamName=team-<PRODUCT NAME>" icon="fas fa-play" %}} Deploy to AWS N. Virginia {{% /button %}} |
-| Ireland (eu-west-1) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?stackName=sagemaker-security-team-resources&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-1/team_resources.json&param_ProductS3Bucket=sagemaker-workshop-cloudformation-eu-west-1&param_TeamName=team-<PRODUCT NAME>" icon="fas fa-play" %}} Deploy to AWS Ireland {{% /button %}} |
-| London (eu-west-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/review?stackName=sagemaker-security-team-resources&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-west-2/team_resources.json&param_ProductS3Bucket=sagemaker-workshop-cloudformation-eu-west-2&param_TeamName=team-<PRODUCT NAME>" icon="fas fa-play" %}} Deploy to AWS London {{% /button %}}
-| Sydney (ap-southeast-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?stackName=sagemaker-security-team-resources&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-west-2/team_resources.json&param_ProductS3Bucket=sagemaker-workshop-cloudformation-ap-southeast-2&param_TeamName=team-<PRODUCT NAME>" icon="fas fa-play" %}} Deploy to AWS Sydney {{% /button %}} |
-
----
 ## Review team resources
 
 You have now created multiple AWS resources to support the data science team.  Please take a moment and review these resources and their configuration.
