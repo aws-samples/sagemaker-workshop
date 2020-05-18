@@ -22,37 +22,37 @@ To deploy a preventive control, assume the role of the [Data Science Administrat
  - Ireland (eu-west-1)
 
     ```
-    https://sagemaker-workshop-cloudformation-eu-west-1.s3.amazonaws.com/ds_notebook.yaml
+    https://s3.eu-west-1.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-1/quickstart/ds_notebook.yaml
     ```
 
  - London (eu-west-2)
 
     ```
-    https://sagemaker-workshop-cloudformation-eu-west-2.s3.amazonaws.com/ds_notebook.yaml
+    https://s3.eu-west-2.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-2/quickstart/ds_notebook.yaml
     ```
 
  - Sydney (ap-southeast-2)
 
     ```
-    https://sagemaker-workshop-cloudformation-ap-southeast-2.s3.amazonaws.com/ds_notebook.yaml
+    https://s3.ap-southeast-2.amazonaws.com/sagemaker-workshop-cloudformation-ap-southeast-2/quickstart/ds_notebook.yaml
     ```
 
  - Oregon (us-west-2)
 
     ```
-    https://sagemaker-workshop-cloudformation-us-west-2.s3.amazonaws.com/ds_notebook.yaml
+    https://s3.us-west-2.amazonaws.com/sagemaker-workshop-cloudformation-us-west-2/quickstart/ds_notebook.yaml
     ```
 
  - N. Virginia (us-east-1)
 
     ```
-    https://sagemaker-workshop-cloudformation-us-east-1.s3.amazonaws.com/ds_notebook.yaml
+    https://s3.us-east-1.amazonaws.com/sagemaker-workshop-cloudformation-us-east-1/quickstart/ds_notebook.yaml
     ```
 
  - Ohio (us-east-2)
 
     ```
-    https://sagemaker-workshop-cloudformation-us-east-2.s3.amazonaws.com/ds_notebook.yaml
+    https://s3.us-east-2.amazonaws.com/sagemaker-workshop-cloudformation-us-east-2/quickstart/ds_notebook.yaml
     ```
 
 Now with a new version of the product defined turn to the [Provisioned Products console](https://console.aws.amazon.com/servicecatalog/home?#/stacks) and update the execution role created earlier to the latest version you just created.
