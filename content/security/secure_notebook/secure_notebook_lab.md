@@ -10,10 +10,10 @@ At this point, the cloud platform engineering team has built a secure base envir
 
 ## Launch the notebook product
 
-Assume the role of the [Data Scientist](https://signin.aws.amazon.com/switchrole?account=000000000000&roleName=DataScientist&displayName=DataScientist) and visit the [Service Catalog](https://console.aws.amazon.com/servicecatalog/home?#/products) product listing.  Launch a SageMakerNotebook product using the **Team Name** defined by the Data Science Administrator.
+Navigate to CloudFormation and go to the stack with the name **SC-###** (it should be the base stack, not a nested stack). Go to Outputs and click the AssumeProjectUserRole link. Assume the role and visit the [Service Catalog](https://console.aws.amazon.com/servicecatalog/home?#/products) product listing.  Launch a SageMakerNotebook product using the **Team Name** defined by the Data Science Administrator.
 
 {{% expand "Step-by-step instructions" %}}
-1. Assume the role of the [Data Scientist](https://signin.aws.amazon.com/switchrole?account=000000000000&roleName=DataScientist&displayName=DataScientist) 
+1. Assume the role of the ds-user by following the steps above to go to CloudFormation and clicking on the stack starting with **sc-###**.(Make sure its not a nested stack) In the Outputs section click the link next to AssumeProjectUserRole.
 For the `Account` field enter your 12-digit AWS account ID.  You can find it on the [My Account](https://console.aws.amazon.com/billing/home?#/account) page.
 1. Open the [Service Catalog](https://console.aws.amazon.com/servicecatalog/home?#/products) product listing.
 1. Open the menu for the `SageMakerNotebook` product and click `Launch Product`
