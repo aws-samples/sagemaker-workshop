@@ -36,18 +36,18 @@ To get the most of these labs it will be beneficial if you have prior experience
 
    The notebooks use Pandas in many different places to load, export, and manipulate data.  If you are unfamiliar with the Pandas library it may be helpful to review some of their [Getting Started](https://pandas.pydata.org/docs/getting_started/index.html) materials.
 
- - **[scikit-learn](https://scikit-learn.org)**
+ - **[scikit-learn](https://scikit-learn.org)** sci-kit learn is a popular open source framework for data science and machine learning.
 
- - **[XGBoost](https://xgboost.readthedocs.io)**
+ - **[XGBoost](https://xgboost.readthedocs.io)** xgboost is one of the most popular and performant gradient boosting algorithms for supervised learning tasks.
 
- - **[Jupyter](https://jupyter.org/)**
+ - **[Jupyter](https://jupyter.org/)** Jupyter is a popular open source interactive computing environment with a user friendly notebook interface.  
    
    You will use Jupyter notebooks to complete these labs.  If you have not used [Jupyter](https://jupyter.org/) before you may find a [Jupyter cheat sheet](https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet) to be useful.  The cheat sheet walks through navigation of the Jupyter interface and how to use a notebook.
    
-   - **[SageMaker Experiments](https://docs.aws.amazon.com/sagemaker/latest/dg/experiments.html)** SageMaker Experiments APIs can be used to manage and track the metadata for your training, pre-processing, hyperparameter tuning jobs.
+  - **[SageMaker Experiments](https://docs.aws.amazon.com/sagemaker/latest/dg/experiments.html)** SageMaker Experiments APIs can be used to manage and track the metadata for your training, pre-processing, hyperparameter tuning jobs.
    
-   - **[SageMaker Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html)** SageMaker ModelMonitor can be used to detect data drift during inference time on the payload sent to your endpoint. It can be connected to CloudWatch to send an alarm or notification when violations are detected and users need to be alerted.
+  - **[SageMaker Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html)** SageMaker ModelMonitor can be used to detect data drift during inference time on the payload sent to your endpoint. It can be connected to CloudWatch to send an alarm or notification when violations are detected and users need to be alerted.
    
-   - **[SageMaker Processing](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_processing.html)** SageMaker Processing can be used to run your scripts for pre-processing, feature engineering in a managed way where Amazon SageMaker sets up the underlying infrastructure needed to run your job at scale, tearing down the instances once the job is complete.
+  - **[SageMaker Processing](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_processing.html)** SageMaker Processing can be used to run your scripts for pre-processing, feature engineering in a managed way where Amazon SageMaker sets up the underlying infrastructure needed to run your job at scale, tearing down the instances once the job is complete.
 
 Now, let's get started!
