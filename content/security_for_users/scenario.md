@@ -4,8 +4,15 @@ chapter = false
 weight = 1
 +++
 
-You work at a company that wishes to enable their data scientists to deliver machine learning-based projects that are trained on highly sensitive company data.  The project teams are constrained by shared on-premise resources so you have been tasked with determining how the business can leverage the cloud to provision environments for the data science teams.  The environment must be secure, protecting the sensitive data while also enabling the data science teams to self-service.
+You are a data scientist or ML engineer who works at a company that wishes to enable their data scientists to deliver machine learning-based projects that are trained on highly sensitive company data.  The project teams are constrained by shared on-premise resources so your sysops admins have created all the infrastructure-as-code templates needed to provision a secure environment, which protects the sensitive data while also enabling the data science teams to self-service.
 
+You as a data scientist or engineer will need to quickly set this environment up for yourself, so you can start working on exploring your data, training, deploying and monitoring your models. The key takeaways of this workshop are illustrated in the diagram below:
+
+![](media/takeaways.png)
+
+In these notebooks we will see some best practices on how to implement these requirements using Amazon SageMaker. Note that while these are best practices and guidelines, the information included in these notebooks is for illustrative purposes only. Nothing in this notebook is intended to provide you legal, compliance, or regulatory guidance.
+
+Let's get started!
 ---
 
 During this series of labs, you will be creating a secure environment for a team of data scientists with self-service tools to manage the environment and deliver an ML project.
@@ -31,13 +38,3 @@ To do this, the roles will work together to configure environments and iterate t
  - **Lab 3: Deploy an Amazon SageMaker notebook**
 
      As a data scientist, use Service Catalog to deploy an Amazon SageMaker notebook.
-
- - **Lab 4: Create a training job in line with security policy**
-
-     As a data scientist, observe your training job's performance as security controls respond to incorrect configuration parameters.
-
- - **Lab 5: Improve security controls**
-
-     As the data science administrator, alter the IAM policies governing the data science environment to deliver preventive controls to guard your sensitive data.
-
-Next, let's review the tools you'll need to complete these labs.
