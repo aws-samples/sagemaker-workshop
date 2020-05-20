@@ -97,7 +97,7 @@ After the notebook has launched successfully you can open it by visiting the [Sa
 When its open the Notebook kernel should use the `conda_python3` kernel.  If Jupyter asks you to set the kernel select `conda_python3` and if Jupyter displays an error, reload the Jupyter page by clicking your browser Refresh button.
 {{% /notice %}}
 
-![Jupyter Notebook Interface](/images/jupyter_notebook.png)
+![Jupyter Notebook Interface](/media/jupyter_notebooks.png)
 
 This lab comprises of two noteboks: the first: `01_SageMaker-DataScientist-Workflow.ipynb` will cover a typical Data Scientist workflow and show you how to explore data, pre-process data, train an XGBoost model using a custom container and explore feature importances for that model in a secure manner, maintaining network traffic via our private VPC and enforing encryption at rest and in transit. Furthermore, you will learn how to using SageMaker Processing for running processing jobs at scale, and leverage Spot instance pricing to save on training costs.
 
