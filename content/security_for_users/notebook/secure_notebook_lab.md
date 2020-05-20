@@ -60,11 +60,11 @@ For the `Account` field enter your 12-digit AWS account ID.  You can find it on 
 
 You will land at a Provisioned Product page while the Service Catalog creates your Jupyter Notebook.  Periodically click Refresh until the Status reads `Succeeded`.  This should table about 5 minutes to launch your notebook.
 
-![Provision Product Status](/images/launch_product_status.png)
+![Provision Product Status](https://github.com/stefannatu/sagemaker-workshop/blob/master/static/images/launch_product_status.png)
 
 {{% /expand %}}
 
-![Provisioned Notebook Product](/images/provisioned_product.png)
+![Provisioned Notebook Product](https://github.com/stefannatu/sagemaker-workshop/blob/master/static/images/provisioned_product.png)
 
 ## Access IAM
 Every SageMaker notebook needs permissions granted to it to be able to access/create/delete AWS resources and APIs. Let's go ahead and take a look at the permissions that are attached to this SageMaker notebook. 
