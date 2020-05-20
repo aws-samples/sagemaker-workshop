@@ -43,5 +43,11 @@ To get the most of these labs it will be beneficial if you have prior experience
  - **[Jupyter](https://jupyter.org/)**
    
    You will use Jupyter notebooks to complete these labs.  If you have not used [Jupyter](https://jupyter.org/) before you may find a [Jupyter cheat sheet](https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet) to be useful.  The cheat sheet walks through navigation of the Jupyter interface and how to use a notebook.
+   
+   - **[SageMaker Experiments](https://docs.aws.amazon.com/sagemaker/latest/dg/experiments.html)** SageMaker Experiments APIs can be used to manage and track the metadata for your training, pre-processing, hyperparameter tuning jobs.
+   
+   - **[SageMaker Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html)** SageMaker ModelMonitor can be used to detect data drift during inference time on the payload sent to your endpoint. It can be connected to CloudWatch to send an alarm or notification when violations are detected and users need to be alerted.
+   
+   - **[SageMaker Processing](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_processing.html)** SageMaker Processing can be used to run your scripts for pre-processing, feature engineering in a managed way where Amazon SageMaker sets up the underlying infrastructure needed to run your job at scale, tearing down the instances once the job is complete.
 
 Now, let's get started!
