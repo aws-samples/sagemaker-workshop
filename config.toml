@@ -2,7 +2,7 @@ baseURL = "https://sagemaker-workshop.com"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Amazon SageMaker Workshop"
-theme = "learn"
+theme = "hugo-theme-learn"
 uglyurls = true
 googleAnalytics = "UA-119576367-1"
 

@@ -4,6 +4,10 @@ chapter = true
 weight = 50
 +++
 
-In this module we will introduce you to the recommended practices for using Amazon SageMaker in a secure data science environment.  Like many other AWS services, Amazon SageMaker is secure by default.  Throughout this workshop we will show you how you can create a data science environment that meets common security requirements for many customers.  We will cover various security topics and provide lab materials to exercise and explore the many security features available with Amazon SageMaker. 
+In this module you will use AWS services to quickly deploy a secure environment for a data science project.  After deploying the environment you will also create a SageMaker notebook for use throughout the remainder of this module.  
 
-Let's get started.
+{{% notice info %}}
+Please know that this module creates the same environment that was created in the [Building Secure Environments](/security_for_sysops) module.  If you have worked through that module already and have a secured data science environment, you can reuse that environment here and can skip ahead to [Secure Data Science Notebooks](/security_for_users/notebook.html).
+{{% /notice %}}
+
+Let's get building.
