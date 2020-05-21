@@ -8,7 +8,7 @@ You are a data scientist or ML engineer who works at a company that wishes to en
 
 You as a data scientist or engineer will need to quickly set this environment up for yourself, so you can start working on exploring your data, training, deploying and monitoring your models. The key takeaways of this workshop are illustrated in the diagram below:
 
-![](media/takeaways.png)
+![Workshop takeaways](/images/sec-takeaways.png)
 
 In these notebooks we will see some best practices on how to implement these requirements using Amazon SageMaker. Note that while these are best practices and guidelines, the information included in these notebooks is for illustrative purposes only. Nothing in this notebook is intended to provide you legal, compliance, or regulatory guidance.
 
