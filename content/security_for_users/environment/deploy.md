@@ -4,40 +4,42 @@ chapter = false
 weight = 1
 +++
 
-You work at a company that wishes to enable their data scientists to deliver machine learning-based projects that are trained on highly sensitive company data.  The project teams are constrained by shared on-premise resources so you have been tasked with determining how the business can leverage the cloud to provision environments for the data science teams.  The environment must be secure, protecting the sensitive data while also enabling the data science teams to self-service.
+In the following steps you will use AWS CloudFormation and Amazon Service Catalog to create a self-service mechanism to create secure data science environments.  You will first deploy a CloudFormation template which provisions a shared service environment which hosts a PyPI mirror along with a detective control to enforce Amazon SageMaker resources being attached to a VPC.  The template will also create a product portfolio in Amazon Service Catalog which enables users with appropriate permissions to create a data science environment dedicated to a single project.  Once this environment is created you will move on to the next lab which will use Amazon Service Catalog to provision a SageMaker notebook.
 
 ---
 
-During this series of labs, you will be creating a secure environment for a team of data scientists with self-service tools to manage the environment and deliver an ML project.
+1. Deploy a CloudFormation template which creates a product portfolio, a detective control, and a PyPI mirror:
 
-There are three roles involved across these labs:
+    | Region | Launch Template |
+    |:---:|:---|
+    | Oregon (us-west-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-west-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Oregon {{% /button %}} |
+    | Ohio (us-east-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Ohio {{% /button %}} |
+    | N. Virginia (us-east-1) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-1/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS N. Virginia {{% /button %}} |
+    | Ireland (eu-west-1) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-1/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Ireland {{% /button %}} |
+    | London (eu-west-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS London {{% /button %}} |
+    | Sydney (ap-southeast-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-ap-southeast-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Sydney {{% /button %}} |
 
- - **Cloud Platform Engineering** - responsible for managing the cloud environments 
- - **Data Science Administrator** - responsible for managing resources to support the data science teams
- - **Data Scientist** - a member of a project team tasked with delivering an ML or data science project
+1. Visit the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home) and select the `Outputs` tab for the stack you just deployed.
+1. Use the provided link to assume the role of **Project Administrator**.
+1. Navigate to the [Service Catalog console](https://console.aws.amazon.com/servicecatalog/home?isSceuc=true#/products) and launch a **Data Science Project Environment**.
 
-These 3 roles will work together to create a secure cloud environment with appropriate guard rails, provision a secure data science environment, and deliver an ML project working with sensitive data.  You will start as a member of the **cloud platform engineering** team to build a secure network and provision a service catalog for use by the **data science administration** team.  Then, as a **data science administrator**, you will use the service catalog along with Cloudformation to provide the **data science** team with the tools they need to deliver their project.  Finally, as a member of the **data science** team, you will self-service and provision a Notebook server.  Using that server you will then develop and train a model while exploring the security controls in the data science environment.
+    {{% expand "Step-by-Step instructions" %}}
 
-To do this, the roles will work together to configure environments and iterate to improve the security posture across 5 labs.
+1. Click the context menu button in the upper-right of the **Data Science Project Environment** tile and select `Launch product`.
+1. Give the provisioned product a name, such as `project-abc-environment` and click `Next`.
+1. Use a **ProjectName** such as `project-abc` and click `Next`.
+1. Click `Next` without entering any Tag Options.
+1. Click `Next` without checking any Notifications.
+1. On the Review page click `Launch`.
 
- - **Lab 1: Deploy the base infrastructure**
+:40 The project will require approximately 5 minutes to launch.
 
-     As the cloud platform engineer, create a VPC with no Internet connectivity and an AWS Service Catalog portfolio to support the data science administration team.
+    {{% /expand %}}
 
- - **Lab 2: Deploy the first version of the team resources**
+{{% notice info %}}
+The product will take approximately 10 minutes to launch.
+{{% /notice %}}
 
-     As a data science administrator, create an IAM role for the data science team and provision a Service Catalog portfolio so the data scientists can self-service.
+---
 
- - **Lab 3: Deploy an Amazon SageMaker notebook**
-
-     As a data scientist, use Service Catalog to deploy an Amazon SageMaker notebook.
-
- - **Lab 4: Create a training job in line with security policy**
-
-     As a data scientist, observe your training job's performance as security controls respond to incorrect configuration parameters.
-
- - **Lab 5: Improve security controls**
-
-     As the data science administrator, alter the IAM policies governing the data science environment to deliver preventive controls to guard your sensitive data.
-
-Next, let's review the tools you'll need to complete these labs.
+You have now created the underlying infrastructure for a secure data science environment which enables project teams to self service.  In the next lab you will use this environment to create a Jupyter notebook for yourself.

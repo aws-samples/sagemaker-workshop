@@ -4,6 +4,6 @@ chapter = true
 weight = 50
 +++
 
-In this module we will introduce you to the recommended practices for using Amazon SageMaker in a secure data science environment.  Like many other AWS services, Amazon SageMaker is secure by default.  Throughout this workshop we will show you how you can create a data science environment that meets common security requirements for many customers.  We will cover various security topics and provide lab materials to exercise and explore the many security features available with Amazon SageMaker. 
+You have now accessed a Jupyter notebook server running within a secured data science environment.  It has no Internet access and only grants you access to a hosted PyPI mirror and Amazon S3.  Using this environment you will not work through the various stages of the machine learning lifecycle, from data exploration, through training, and finally to hosting and monitoring.  
 
 Let's get started.
