@@ -1,5 +1,5 @@
 +++
-title = "Lab 3: Deploy a Jupyter Notebook"
+title = "Security for data scientists"
 chapter = false
 weight = 31
 +++
