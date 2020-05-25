@@ -1,41 +1,34 @@
 +++
-title = "Lab 2: Team Resources"
+title = "Lab 1: Best Practice as Code"
 chapter = false
 weight = 25
 +++
 
-The cloud platform enineering team have now minted a new secure environment for us to begin supporting data science teams.  To get started, as the Data Science Administrator, use the AWS Service Catalog to create an IAM role for a new data science team.  This IAM role will be used as the execution role for all SageMaker Notebooks created by the data scientists on the team.  The execution role controls what AWS resources, such as S3 buckets, the SageMaker notebook will be able to access.  We will also use AWS CloudFormation to create the rest of the team resources including an AWS Service Catalog Portfolio.  The portfolio will contain a SageMaker Notebook product that will allow data scientists to self-service and deploy their own secure SageMaker notebooks.  
+As the cloud platform engineering team begin by deploying a shared services VPC which will host a PyPI mirror of approved Python packages, for consumption by data science project teams.  Next create a Service Catalog Portfolio which the project administrators can use to easily deploy data science environments in support of new projects.
+
+{{% notice info %}}
+This lab assumes other recommended security practices such as enabling AWS CloudTrail and capturing VPC Flow Logs.  The contents of this lab focus soley on controls and guard rails directly related to data science resources.
+{{% /notice %}}
 
 ---
 
-## Enable the data science team
+## Enable the project administrators
 
-Assume the role of the [Data Science Administrator](https://signin.aws.amazon.com/switchrole?account=000000000000&roleName=DataScientistAdmin&displayName=DataScienceAdmin) and using the [Service Catalog](https://console.aws.amazon.com/servicecatalog/home?#/products) launch the **Data Science Project Environment** product.  After the product has launched create a Service Catalog portfolio specifically for the data science team.
+As a cloud platform engineering team member deploy the CloudFormation template linked below to provision a shared service VPC and Service Catalog portfolio.
 
-{{% expand "Step-by-step instructions" %}}
-1. Assume the role of the [Data Science Administrator](https://signin.aws.amazon.com/switchrole?account=000000000000&roleName=DataScientistAdmin&displayName=DataScienceAdmin) 
-For the `Account` field enter your 12-digit AWS account ID.  You can find it on the [My Account](https://console.aws.amazon.com/billing/home?#/account) page.
-1. Open the [Service Catalog](https://console.aws.amazon.com/servicecatalog/home?#/products) product listing.
-1. Open the menu for the Data Science Project Environment product and click `Launch Product`
-
-    ![Provision Notebook Execution Role](/images/launch_sagemaker_role.png)
-
-1. Give the product a name such as `<your name>-sagemaker-demo` (LOWER CASE ONLY), click `Next` and then enter a unique `TeamName` such as `team-<PRODUCT NAME>` or a similar value of your choosing.
-1. Click `Next` on the next 3 screens and then click `Launch`.  
-1. You will land on a Provisioned Product page and can periodically click the Refresh button to see the status of the product deployment.
-
-    ![Provision Product Status](/images/launch_product_status.png)
-
-1. Once the Status for the product shows `Succeeded` you can move on to the next step.
-
-    ![Provision Product Success](/images/provisioned_product.png)
-
-{{% /expand %}}
+    | Region | Launch Template |
+    |:---:|:---|
+    | Oregon (us-west-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-west-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Oregon {{% /button %}} |
+    | Ohio (us-east-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Ohio {{% /button %}} |
+    | N. Virginia (us-east-1) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-1/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS N. Virginia {{% /button %}} |
+    | Ireland (eu-west-1) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-1/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Ireland {{% /button %}} |
+    | London (eu-west-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS London {{% /button %}} |
+    | Sydney (ap-southeast-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-ap-southeast-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Sydney {{% /button %}} |
 
 ---
 ## Review team resources
 
-You have now created multiple AWS resources to support the data science team.  Please take a moment and review these resources and their configuration.
+You have now created two AWS resources to support the project administration team.  Please take a moment and review these resources and their configuration.
 
 - **Amazon S3 buckets for training data and trained models**
 
@@ -55,4 +48,4 @@ You have now created multiple AWS resources to support the data science team.  P
 
 ---
 
-With the teams resources created let's move on to Lab 3 where we will, as a data scientist, self-service and create a Jupyter notebook server.
+With the resources created let's move on to Lab 2 where we will, as a project administrator, deploy a secure data science environment for a new project team.

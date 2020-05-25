@@ -1,7 +1,7 @@
 +++
 title = "Deploy a Secure Environment"
 chapter = true
-weight = 50
+weight = 61
 +++
 
 In this module you will use AWS services to quickly deploy a secure environment for a data science project.  After deploying the environment you will also create a SageMaker notebook for use throughout the remainder of this module.  

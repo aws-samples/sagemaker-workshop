@@ -54,4 +54,4 @@ Once you've created a portfolio you then begin to define [products](https://docs
 
 ---
 
-In this lab you will create a product to enable a data science team to self-service, creating Jupyter Notebook instances for themselves on-demand and in compliance with your policies.
+In this lab you will create a shared PyPI mirror for approved Python packages along with a Service Catalog product to enable project administrators to quickly deploy data science environments using approved controls.  Project teams can then use the environments to self-service, creating Jupyter Notebook instances for themselves on-demand and in compliance with your policies.
