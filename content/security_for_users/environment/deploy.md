@@ -32,8 +32,6 @@ In the following steps you will use AWS CloudFormation and Amazon Service Catalo
 1. Click `Next` without checking any Notifications.
 1. On the Review page click `Launch`.
 
-:40 The project will require approximately 5 minutes to launch.
-
     {{% /expand %}}
 
 {{% notice info %}}
