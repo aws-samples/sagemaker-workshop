@@ -56,4 +56,4 @@ In this lab you will create a VPC with endpoints for the following services:
 
 ---
 
-Let's now use CloudFormation to create an AWS Virtual Private Cloud, security groups, and VPC endpoints to configure a precise, secure network environment to support your data science teams.  The VPC will have no IGW or NAT gateway attached and it will have multiple subnets across 2 availability zones.  VPC endpoints will be created and attached to the VPC and security groups applied to control what VPC resources can communicate with each other.
+Let's now use CloudFormation to create an AWS Virtual Private Cloud, security groups, and VPC endpoints to configure a precise, secure network environment to support your data science teams.  The VPC will have no IGW or NAT gateway attached and it will have multiple subnets across 3 availability zones.  VPC endpoints will be created and attached to the VPC and security groups applied to control what VPC resources can communicate with each other.
