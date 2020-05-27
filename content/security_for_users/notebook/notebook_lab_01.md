@@ -4,7 +4,11 @@ chapter = false
 weight = 2
 +++
 
-Now that your notebook environment is provisioned, click on the NotebookUrl link in the service catalog product as shown below. This will launch a Jupyter lab environment. Before jumping into the notebook, let's take a look at the key takeaways from this workshop.
+Now that your notebook environment is provisioned, click on the NotebookUrl link in the service catalog product as shown below.
+
+![Provisioned Notebook Product](https://github.com/stefannatu/sagemaker-workshop/blob/master/static/images/provisioned_notebook.png)
+
+This will launch a Jupyter lab environment. Before jumping into the notebook, let's take a look at the key takeaways from this workshop.
 
 As a data scientist working in a regulated industry such as financial services, your Cloud Platform engineering team has created a secure environment for you. That said, data scientists need to ensure that their notebooks follow best practices in 8 key areas:
 
