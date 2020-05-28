@@ -4,6 +4,8 @@ chapter = false
 weight = 1
 +++
 
+## To be revised
+
 You work at a company that wishes to enable their data scientists to deliver machine learning-based projects that are trained on highly sensitive company data.  The project teams are constrained by shared on-premise resources so you have been tasked with determining how the business can leverage the cloud to provision environments for the data science teams.  The environment must be secure, protecting the sensitive data while also enabling the data science teams to self-service.
 
 ---
