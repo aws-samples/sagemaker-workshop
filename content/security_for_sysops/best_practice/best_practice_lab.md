@@ -35,6 +35,12 @@ As a cloud platform engineering team member deploy the CloudFormation template l
 | London (eu-west-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS London {{% /button %}} |
 | Sydney (ap-southeast-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-ap-southeast-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Sydney {{% /button %}} |
 
+{{% expand "Step by Step" %}}
+1. Click the button above which is appropriate for the AWS region in which you want to build.  This will take you to the CloudFormation console to create a CloudFormation stack using the reference CloudFormation template.  
+1. Check the Stack name and the name you want to use for your shared service resources.  You can accept the default values if you wish.
+1. Under `Capabilities` click the 2 check boxes indicating you understand that the CloudFormation template will create IAM resources.
+1. Click `Create stack`
+{{% /expand %}}
 ---
 
 ## Review team resources
