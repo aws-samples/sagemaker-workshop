@@ -12,7 +12,7 @@ Now that a data science environment has been provisioned for your project team y
 1. Locate the link to assume the role of a Data Science User and assume the role.
 1. Now, as a Data Science User, return to the [Service Catalog console](https://console.aws.amazon.com/servicecatalog/home?isSceuc=true#/products) and launch a SageMaker Notebook product.
 
-    {{% expand "Step-by-Step instructins" %}}
+    {{% expand "Step-by-Step instructions" %}}
 1. Click the context menu button in the upper right corner of the SageMaker Notebook product and click `Launch Product`.
 1. Give the product a name such as `my-sagemaker-nb` and click `Next`.
 1. Provide a **NotebookOwnerEmail** to be associated with any git commits.

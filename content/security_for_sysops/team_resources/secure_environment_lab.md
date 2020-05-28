@@ -4,7 +4,7 @@ chapter = false
 weight = 11
 +++
 
-The data science team have requested a cloud environment to complete their project.  The project administrator will use the Service Catalog portfolio, managed by the Cloud Platform Engineering team, to provision a secure VPC and related resources for the data science team.  In this lab, you will use Amazon Service Catalog to provision this data science environment.  Following the steps below create an environment which contains:
+A data science project team have requested a cloud environment to begin their project.  As the project administrator you will use the Service Catalog portfolio, managed by the Cloud Platform Engineering team, to provision a secure VPC and related resources for the data science team.  In this lab, you will use Amazon Service Catalog to provision this data science environment.  Following the steps below create an environment which contains:
 
  - AWS VPC with no IGW
  - VPC endpoints to Amazon S3, Amazon SageMaker, CloudWatch, STS
@@ -15,7 +15,28 @@ The data science team have requested a cloud environment to complete their proje
 
 ## Deploy a project environment
 
-Using the Amazon Service Catalog locate and launch a Data Science Project.
+In the previous lab you deployed a CloudFormation template which created a project administrator role.  Details of this role can be found in the CloudFormation Outputs for the stack you deployed.
+
+After assuming the project administrator role, visit the AWS Service Catalog console and provision a project environment for the data science team.
+
+Environment creation will take approximately 10 minutes.
+
+{{% expand "Step-by-step instructions" %}}
+1. Open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/home#/stacks) and select the stack you deployed in the previous lab.
+1. Click the `Outputs` tab on the stack's detail page and notice the `AssumeProjectAdminRole` hyperlink to assume the project administrator role created by the stack.
+1. Click the hyperlink to assume the project administrator role.
+1. On the resulting screen leave the values unchanged and click `Switch Role`.
+
+**As the project administrator:**
+1. Visit the [AWS Service Catalog console](https://console.aws.amazon.com/servicecatalog/home#/products).
+1. Click the context menu button next to the product `Data Science Project Environment` and click `Launch product`.
+1. Give the product deployment a name, such as `example-project-dev-environment` and click `Next`.
+1. Provide a `ProjectName` such as `example-project`.
+1. You can leave the remaining values unchanged if you like.
+1. Click `Next` through the next few screens to get to the `Review` page.
+1. Click `Launch`.
+
+{{% /expand %}}
 
 {{% notice info %}}
 If you wish to see the contents of these CloudFormation templates you can view them on the CloudFormation console or copy them locally for review using a command such as the below.
