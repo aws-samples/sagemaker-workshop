@@ -12,6 +12,16 @@ This lab assumes other recommended security practices such as enabling AWS Cloud
 
 ---
 
+## Shared Services architecture
+
+Along with IAM roles and Service Catalog portfolio the stack below will also provision a shared services VPC. The shared services VPC will house a PyPI mirror that hosts approved Python packages and can be used by all internal Python applications, such as ML code running on SageMaker.
+
+The architecture will look like this:
+
+![Shared Services Architecture](/images/sec-ds-architecture-simplified-v1.jpg)
+
+---
+
 ## Enable the project administrators
 
 As a cloud platform engineering team member deploy the CloudFormation template linked below to provision a shared service VPC and Service Catalog portfolio.
@@ -26,9 +36,10 @@ As a cloud platform engineering team member deploy the CloudFormation template l
 | Sydney (ap-southeast-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-ap-southeast-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Sydney {{% /button %}} |
 
 ---
+
 ## Review team resources
 
-You have now created two AWS resources to support the project administration team.  Please take a moment and review these resources and their configuration.
+You have now created the following AWS resources to support the project administration team.  Please take a moment and review these resources and their configuration.
 
 - **Amazon S3 buckets for training data and trained models**
 
@@ -45,6 +56,14 @@ You have now created two AWS resources to support the project administration tea
 - **Service Catalog Jupyter Notebook product**
 
     A [Service Catalog Portfolio](https://console.aws.amazon.com/servicecatalog/console?#portfolios) containing a best practice Jupyter notebook product has been configured to give the data science team members the ability to create resources on demand.
+
+- **Shared Services VPC**
+
+    The template has created a VPC that will house our shared applications. [Visit the console](https://console.aws.amazon.com/vpc/home) and see what services are accessible from within the VPC?
+
+- **PyPI Mirror Service**
+
+    A service has been created in Shared Services VPC that hosts a PyPI mirror server. This service is running on a cluster managed by Amazon Elastic Container Service (ECS). The actual server is running as a serverless container task on AWS Fargate. [Visit the ECS console](https://console.aws.amazon.com/ecs/home) to check whether the service is up and running. You can also see the task logs from the container through the ECS console to check its status.
 
 ---
 
