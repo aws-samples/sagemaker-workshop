@@ -1,5 +1,5 @@
 +++
-title = "SageMaker Security"
+title = "Working Securely"
 chapter = true
 weight = 53
 +++
