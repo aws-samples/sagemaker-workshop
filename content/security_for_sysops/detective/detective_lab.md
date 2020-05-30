@@ -45,10 +45,7 @@ training completed.
 
 The training job was terminated by an AWS Lambda function that was executed in response to a CloudWatch Event that was triggered when the training job was created.  The Lambda function inspected the training job, saw that it was NOT attached to a VPC and stopped the training job from executing.  
 
-Assume the role of the Data Science Administrator and review the code of the [AWS Lambda function SagemakerTrainingJobVPCEnforcer]
-(https://console.aws.amazon.com/lambda/home?#/functions/SagemakerTrainingJobVPCEnforcer?tab=configuration).
- Also review the [CloudWatch Event rule SagemakerTrainingJobVPCEnforcementRule](https://console.aws.amazon.com/cloudwatch/home?#rules:name=SagemakerTrainingJobVPCEnforcementRule) and
- take note of the event which triggers execution of the Lambda function.
+Assume the role of the Data Science Administrator and review the code of the [AWS Lambda function SagemakerTrainingJobVPCEnforcer](https://console.aws.amazon.com/lambda/home?#/functions/SagemakerTrainingJobVPCEnforcer?tab=configuration). Also review the [CloudWatch Event rule SagemakerTrainingJobVPCEnforcementRule](https://console.aws.amazon.com/cloudwatch/home?#rules:name=SagemakerTrainingJobVPCEnforcementRule) and take note of the event which triggers execution of the Lambda function.
 
 ---
 
@@ -56,7 +53,7 @@ Assume the role of the Data Science Administrator and review the code of the [AW
 
 To succesfully run your training job you will need to configure the training job to run within your VPC.  To do this you will pass a collection of subnet IDs and security groups that we imported earlier. 
 
-An example of some sample code showing how these get imported is shown here:
+The following sample code shows how these can be specified:
 
 ```python
 TensorFlow(entry_point='predictor.py',
