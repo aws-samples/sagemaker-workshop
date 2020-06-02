@@ -28,7 +28,7 @@ The specific features and functionalities that you will become familiar with are
 
  - Pushing/pulling code to private AWS CodeCommit Repository
 
- - Deploying a trained model and monitoring it for data drift
+ - Deploying a trained model and monitoring it for data drift with **SageMaker ModelMonitor**
 
  - Securely running training, processing jobs using KMS keys to ensure encryption at rest and PrivateLink to support encryption in transit.
 
