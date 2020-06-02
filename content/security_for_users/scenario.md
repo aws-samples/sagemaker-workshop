@@ -14,25 +14,25 @@ In these notebooks we will see some best practices on how to implement these req
 
 The specific features and functionalities that you will become familiar with are:
 
-1/ **Importing custom libraries using pip** without having public internet connectivity
+ - **Importing custom libraries using pip** without having public internet connectivity
 
-2/ Training a model with and without VPC and implementation of preventative controls to avoid training without VPC.
+ - Training a model with and without VPC and implementation of preventative controls to avoid training without VPC.
 
-3/ Importing networking configurations, KMS keys directly in the notebook without data scientist having to know what they are.
+ - Importing networking configurations, KMS keys directly in the notebook without data scientist having to know what they are.
 
-4/ Using **SageMaker Processing** to run scikit-learn data pre-processing jobs in Python.
+ - Using **SageMaker Processing** to run scikit-learn data pre-processing jobs in Python.
 
-5/ Using **SageMaker training on spot instances** to save on cost
+ - Using **SageMaker training on spot instances** to save on cost
 
-6/ Model Explainability using SHAP
+ - Model Explainability using SHAP
 
-7/ Pushing/pulling code to private AWS CodeCommit Repository
+ - Pushing/pulling code to private AWS CodeCommit Repository
 
-8/ Deploying a trained model and monitoring it for data drift
+ - Deploying a trained model and monitoring it for data drift
 
-9/ Securely running training, processing jobs using KMS keys to ensure encryption at rest and PrivateLink to support encryption in transit.
+ - Securely running training, processing jobs using KMS keys to ensure encryption at rest and PrivateLink to support encryption in transit.
 
-10/ Using **SageMaker Experiments** to maintain lineage and traceability of model artifacts.
+ - Using **SageMaker Experiments** to maintain lineage and traceability of model artifacts.
 
 
 
