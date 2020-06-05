@@ -8,9 +8,36 @@ You are a data scientist or ML engineer who works at a company that wishes to en
 
 You as a data scientist or engineer will need to quickly set this environment up for yourself, so you can start working on exploring your data, training, deploying and monitoring your models. The key takeaways of this workshop are illustrated in the diagram below:
 
-![Workshop takeaways](/images/sec-takeaways.png)
+![Workshop takeaways](https://github.com/stefannatu/sagemaker-workshop/blob/master/static/images/sec-takeaways.png)
 
-In these notebooks we will see some best practices on how to implement these requirements using Amazon SageMaker. Note that while these are best practices and guidelines, the information included in these notebooks is for illustrative purposes only. Nothing in this notebook is intended to provide you legal, compliance, or regulatory guidance.
+In these notebooks we will see some best practices on how to implement these requirements using Amazon SageMaker. Note that while these are best practices and guidelines, the information included in these notebooks is for illustrative purposes only. Nothing in this notebook is intended to provide you legal, compliance, or regulatory guidance. 
+
+The specific features and functionalities that you will become familiar with are:
+
+ - **Importing custom libraries using pip** without having public internet connectivity
+
+ - Training a model with and without VPC and implementation of preventative controls to avoid training without VPC.
+
+ - Importing networking configurations, KMS keys directly in the notebook without data scientist having to know what they are.
+
+ - Using **SageMaker Processing** to run scikit-learn data pre-processing jobs in Python.
+
+ - Using **SageMaker training on spot instances** to save on cost
+
+ - Model Explainability using SHAP
+
+ - Pushing/pulling code to private AWS CodeCommit Repository
+
+ - Deploying a trained model and monitoring it for data drift with **SageMaker ModelMonitor**
+
+ - Securely running training, processing jobs using KMS keys to ensure encryption at rest and PrivateLink to support encryption in transit.
+
+ - Using **SageMaker Experiments** to maintain lineage and traceability of model artifacts.
+
+
+
+
+
 
 Let's get started!
 ---
