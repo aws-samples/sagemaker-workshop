@@ -71,9 +71,9 @@ Every SageMaker notebook needs permissions granted to it to be able to access/cr
 
 Here's the step by step:
 
-1. Navigate to IAM in the AWS Console. 
+1. Navigate to IAM in the AWS Console. *Note: you will not have permisisons to access IAM as a data scientist. you will need to switch to the Data Administrator Role*.
 
-2. In *Roles*, look for the IAM role starting with **SageMakerExecRoleArn-${TeamName}**. This role is attached to our notebook instance and has been automatically provisioned by the workshop.
+2. In *Roles*, look for the IAM role containing with **ds-notebook-role-**. This role is attached to our notebook instance and has been automatically provisioned by the workshop. To see which role is attached to the notebook instance, you can also navigate to the SageMaker Console, click on the notebook instance and look at **Permissions and encryption**. 
 
 3. Take a look at the policies attached to this role. 
 
