@@ -107,7 +107,7 @@ Execute the steps in each of the cells of both notebooks carefully reading the M
 
 Once you complete the `01_SageMaker-DataScientist-Workflow.ipynb` notebook, move on to `02_SageMaker-DevOps-Workflow.ipynb`, and execute the cells there until you reach **Part 8:Reproducibility**
 
-## Part 8: Reproducibility (Optional)
+## Part 8: Reproducibility
 
 In the last part of Notebook 2, we will output a dataframe that contains the lineage of our trained model, tagging the Git Commits. To do so, we first need to commit something to CodeCommit. Here we will mimic the data scientist commiting their training code to Git and the DevOps Engineer commiting their deployment code to Git. 
 
@@ -132,6 +132,11 @@ Now go back to the `02_SageMaker-DevOps-Workflow.ipynb` and enter your commitIDs
 You should see a dataframe containing the lineage history of your Preprocessing job, Experiments, as well as the Commit information to Git. 
 
 This can now be fed into a database for tracking metadata associated with any model training jobs to maintain model governance and provenance by combining SageMaker Experiments training jobs tracking with Git / CodeCommit source and version control APIs.
+
+
+Although we do not cover this here, an important topic to discuss is versioning your data. Data Versioning Tools such as DVC ( https://dvc.org/) are becoming more and more popular as a way to version your data to ensure that your training jobs, hosted models can be traced back to the correct data version for reproducibility purposes. 
+
+One approach to doing that using **SageMaker Experiments** which you have learned about in this lab is to ensure that your S3 buckets have versioning enabled automatically; this way the different S3 versions of the data will be tracked by SageMaker Experiments. Alternatively, you can enter the VersionId as part of the **Tracker** utility that we used in this lab to keep track of the data version. 
 
 ## Takeaways
 
