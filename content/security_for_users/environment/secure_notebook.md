@@ -43,9 +43,9 @@ Amazon SageMaker provides managed EC2-based services such as Jupyter notebooks, 
 
 Amazon SageMaker does this by creating an ENI in your specified VPC and attaching it to the EC2 infrastructure in the service account.  Using this pattern the service gives you control over the network-level access of the services you run on Amazon SageMaker.  
 
-For Jupyter Notebooks this will mean that all Internet connectivity, Amazon S3 connectivity, or access to other systems in your VPC is governed by you and by your network configuration.
+For Jupyter Notebooks this will mean that all Internet connectivity, Amazon S3 connectivity, or access to other systems in your VPC is governed by you and by your network configuration. 
 
-For training jobs and hosted models these are again governed by you.  When retrieving training data from Amazon S3 the SageMaker EC2 instances will communicate with S3 through your VPC.  Equally when the SageMaker EC2 instances retrieve your trained model for hosting, they will communicate with S3 through your VPC.  You maintain governance and control of the network communication of your SageMaker resources.
+For training jobs and hosted models these are again governed by you.  When retrieving training data from Amazon S3 the SageMaker EC2 instances will communicate with S3 through your VPC without traversing the public internet.  Equally when the SageMaker EC2 instances retrieve your trained model for hosting, they will communicate with S3 through your VPC, without traversing the public internet.  You maintain governance and control of the network communication of your SageMaker resources.
 
 ## Access Control
 
@@ -77,7 +77,9 @@ Access to a SageMaker Jupyter notebook instance is goverend by AWS IAM.  In orde
 }
 ```
 
-The IAM policy above states that someone can only communicate with a Notebook if they do so from within a VPC and through specific VPC endpoints.  Using mechanisms like the above you can explicitly control who can interact with a Notebook server.  
+The IAM policy above states that someone can only communicate with a Notebook if they do so from within a VPC and through specific VPC endpoints.  Using mechanisms like the above you can explicitly control who can interact with a Notebook server. Other example IAM policies can be found here: https://docs.aws.amazon.com/sagemaker/latest/dg/security_iam_id-based-policy-examples.html
+
+As a best practice, we want to limit a single user to a notebook instance. As every notebook instance has an associated IAM role, by using fine grained user level IAM roles, we can limit a single user to a single notebook instance. Similarly, for cost attribution purposes we can use tagging https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html to link usage costs to individual users or to teams. 
 
 ## Version Control
 
