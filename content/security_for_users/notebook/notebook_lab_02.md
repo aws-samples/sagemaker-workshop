@@ -40,7 +40,7 @@ A dataframe view shows all the drift that the service detects.
 
 ![ModelMonitor DataFrame](https://github.com/stefannatu/sagemaker-workshop/blob/master/static/images/MM_dataframe.png)
 
-We see that there is a clearly large drift in the MARRIAGE column, but over time the service also detects some drift in the Label distribution and other columns such as the BILL_AMT.
+We see that there is a clearly large drift in the MARRIAGE column, but over time the service also detects some drift in the Label distribution. SageMaker Studio can also directly plot the actual drift as shown in the BILL_AMT figure instead of comparing the baseline to the observed values. 
 
 ![Marriage](https://github.com/stefannatu/sagemaker-workshop/blob/master/static/images/Marriage_drift.png)
 
