@@ -31,3 +31,35 @@ You should see a log containing your commitIDs. We will now load this Commit met
 Now go back to the `02_SageMaker-DevOps-Workflow.ipynb` and enter your commitIDs in the `sclineage` and `endpointlineage`, and execute the next cell.
 
 You should see a dataframe containing the lineage history of your Preprocessing job, Experiments, as well as the Commit information to Git. 
+
+## Model Monitoring
+
+Note that the ModelMonitor service runs a CRON job, so it looks for violations and drift from the baseline on the hour. You might have to run the MM service for a number of hours before you start to see the drift from the columns that we have modified. Here are some images of what the output of ModelMonitor looks like once its running for a while. These graphics are generated using SageMaker Studio UI. 
+
+A dataframe view shows all the drift that the service detects.
+
+![ModelMonitor DataFrame](https://github.com/stefannatu/sagemaker-workshop/blob/master/static/images/MM_dataframe.png)
+
+We see that there is a clearly large drift in the MARRIAGE column, but over time the service also detects some drift in the Label distribution and other columns such as the BILL_AMT.
+
+![Marriage](https://github.com/stefannatu/sagemaker-workshop/blob/master/static/images/Marriage_drift.png)
+
+
+![Label](https://github.com/stefannatu/sagemaker-workshop/blob/master/static/images/Label_drift.png)
+
+
+![Bill](https://github.com/stefannatu/sagemaker-workshop/blob/master/static/images/Bill_drift.png)
+
+
+By setting thresholds for acceptable drift, you can decide when to retrain your models. 
+
+
+
+
+
+
+
+
+
+
+
