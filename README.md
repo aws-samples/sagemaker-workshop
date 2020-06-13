@@ -15,6 +15,10 @@ On Linux:
   - Download from the releases page: https://github.com/gohugoio/hugo/releases/tag/v0.37
   - Extract and save the executable to `/usr/local/bin`
 
+#### Download Hugo themes:
+Download the Hugo Theme Learn submodule:  
+`git submodule update --recursive --init`
+
 #### Install node packages:
 `npm install`
 
