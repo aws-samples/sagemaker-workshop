@@ -27,7 +27,8 @@ In the following steps you will use AWS CloudFormation and Amazon Service Catalo
 
 1. Click the context menu button in the upper-right of the **Data Science Project Environment** tile and select `Launch product`.
 1. Give the provisioned product a name, such as `project-abc-environment` and click `Next`.
-1. Use a **ProjectName** such as `project-abc` and click `Next`.
+1. Use a **ProjectName** such as `project-abc` and click `Next`. 
+**Note** S3 bucket names need to be globally unique, so don't use project-abc verbatim but replace "abc" with something unique such as "yourname-12345" etc. 
 1. Click `Next` without entering any Tag Options.
 1. Click `Next` without checking any Notifications.
 1. On the Review page click `Launch`.
