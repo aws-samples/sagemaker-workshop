@@ -18,31 +18,31 @@ Security is everyone's responsibility.  The cloud infrastructure team have taken
 
     In working with the Amazon SageMaker service you will need to configure training jobs and similar resources using practices inline with security policy.  This means provisioning resources in the same secure network environment in which your JupyterLab server is operating.  This lab will show you how to configure SageMaker to provision resources in accordance with your policies.
 
-2. **Authentication and Access Management**
+1. **Authentication and Access Management**
 
     An AWS IAM role has been provisioned for you and for the resources you create, this lab will show you how to pass that role on to Amazon SageMaker for use when acting on your behalf.
 
-3. **Artifact Management**
+1. **Artifact Management**
 
     Your team has been provided with resources and technology.  Your team will now produce artifacts such as features derived from data, notebooks to explore and conduct experimentation, algorithms to produce ML models, and other forms of intellectual property.  This lab will show you how to manage these assets using services like Amazon S3 and an AWS CodeCommit Git repository. 
 
-4. **Data Encryption**
+1. **Data Encryption**
 
     You will learn how to ensure that all training/processing volumes are passed appropriate encryption keys to ensure data is encrypted end to end, in transit and at rest. Also we will see how to use network configurations to ensure that data is encrypted in transit and doesn't traverse the internet.
 
-5. **Traceability and Auditability**
+1. **Traceability and Auditability**
 
     You will learn how to use SageMaker Experiments to easily maintain the lineage of your trained models and training jobs. SageMaker Experiments will automatically manage the metadata associated with your training jobs and make it easily accessible via a Pandas DataFrame. 
 
-6. **Explainability and Interpretability**
+1. **Explainability and Interpretability**
 
     There are different methods, tools, and techniques to explain an ML model's inference.  In this lab you will use SHAP values to derive feature importances and gain insight into how your model is weighting different inputs to produce a prediction.
 
-7. **Real Time Model Monitoring**
+1. **Real Time Model Monitoring**
 
     Once a model has been produced ensuring that it is producing predictions that are still accurate and relevant for the current state of the world is a must to avoid drift in original accuracy, F1 scores, or other objective metrics.  In this lab you will learn how to monitor your production endpoints in real time to detect concept drift and alert when inputs to your model or its outputs are no longer in keeping with the model's training sets.
 
-8. **Reproducibility**
+1. **Reproducibility**
 
     For audit reasons, you may need to reproduce your work at a later time. To ensure reproducibility, you will see how to use SageMaker experiments in combination with CodeCommit to version your code and track the entire lineage of your models.
 
