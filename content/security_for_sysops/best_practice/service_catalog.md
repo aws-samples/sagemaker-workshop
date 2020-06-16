@@ -4,7 +4,7 @@ chapter = false
 weight = 20
 +++
 
-Allowing your developers to self-service and provision cloud resources on-demand is a powerful enabler for project teams but can be a concern from an operational risk perspective.  However, if you can empower your developers to self-service, while enforcing guard rails and best practice, then the operational and security teams will also benefit.  With enforced guard rails and best practice you can be confident that, while developers are creating resources they need, they are doing so in a manner that is inline with your policies and requirements.  
+Allowing users in the cloud to self-service and provision cloud resources on-demand is a powerful enabler for project teams but can be a concern from an operational risk perspective.  However, if you can empower your developers to self-service, while enforcing guard rails and best practice, then the operational and security teams will also benefit.  With enforced guard rails and best practice you can be confident that, while developers are creating resources they need, they are doing so in a manner that is inline with your policies and requirements.  
 
 ---
 
@@ -25,13 +25,18 @@ AWS services are interacted with via a RESTful API.  Every call into this API is
             "s3:DeleteObject",
             "s3:DeleteObjectVersion"
          ],
-         "Resource":"arn:aws:s3:::my_corporate_bucket/home/${aws:userid}/*"
+         "Resource":"arn:aws:s3:::my_corporate_bucket/home/${aws:userid}/*",
+         "Condition": {
+            "IpAddress": {
+               "aws:SourceIp": "10.1.100.0/24"
+            }
+         }
       }
    ]
 }
 ```
 
-The example policy document above grants a user permissions to read or write to an S3 bucket, but only to a sub-folder that matches the user's user ID.  We can see that the `Effect` explicitly allows the `Action`s on a single `Resource`.  
+The example policy document above grants a user permissions to read or write to an S3 bucket, but only to a sub-folder that matches the user's user ID, and only from an IP address on the `10.1.100.0` network.  We can see that the `Effect` explicitly allows the `Action`s on a single `Resource`.  
 
 Amazon SageMaker has a [comprehensive set of conditions and actions](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam.html) which you can grant to users in your environment.  You can grant users the ability to start, stop, or access notebook servers, create training jobs, or host models in production for example.  You can also use an array of conditions such as:
 
@@ -40,7 +45,7 @@ Amazon SageMaker has a [comprehensive set of conditions and actions](https://doc
  - `sagemaker:DirectInternetAccess`, to ensure that notebooks do not have Internet access
  - `sagemaker:NetworkIsolation`, to ensure that models or training jobs cannot communicate with the network
 
- In this lab you will create an IAM role and a set of permissions to grant the data science team least-privilege access to the data science environment.
+ In this lab you will create an IAM role to allow project administrators to create cloud resources in an approved manner.
 
 ## AWS Service Catalog
 
@@ -54,4 +59,4 @@ Once you've created a portfolio you then begin to define [products](https://docs
 
 ---
 
-In this lab you will create a product to enable a data science team to self-service, creating Jupyter Notebook instances for themselves on-demand and in compliance with your policies.
+In this lab you will create an IAM role for the project administrators.  You will also create a Service Catalog portfolio and product, granting project administrators the ability to deploy data science environments using this product in Service Catalog.  You will also create a detective control (covered later) to detect any Amazon SageMaker resources that are run in a non-compliant manner.  Lastly you will create a PyPI mirror to provide private access to approved Python packages from the data science environments.
