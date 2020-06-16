@@ -4,7 +4,7 @@ chapter = false
 weight = 25
 +++
 
-As the cloud platform engineering team begin by deploying a shared services VPC which will host a PyPI mirror of approved Python packages, for consumption by data science project teams.  Next create a Service Catalog Portfolio which the project administrators can use to easily deploy data science environments in support of new projects.
+As the cloud platform engineering team, begin by deploying a shared services VPC which will host a PyPI mirror of approved Python packages, for consumption by data science project teams.  Next create a Service Catalog Portfolio which the project administrators can use to easily deploy data science environments in support of new projects.
 
 {{% notice info %}}
 This lab assumes other recommended security practices such as enabling AWS CloudTrail and capturing VPC Flow Logs.  The contents of this lab focus soley on controls and guard rails directly related to data science resources.
@@ -14,26 +14,26 @@ This lab assumes other recommended security practices such as enabling AWS Cloud
 
 ## Shared Services architecture
 
-Along with IAM roles and Service Catalog portfolio the stack below will also provision a shared services VPC. The shared services VPC will house a PyPI mirror that hosts approved Python packages and can be used by all internal Python applications, such as ML code running on SageMaker.
+In this section you will quickly get started by deploying a shared PyPI mirror for use by data science project teams.  In addition to deploying a shared service this template will also create an IAM role for use by Service Catalog and for use by project administrators who are responsible for creating data science project environments.
+
+The shared PyPI mirror will be hosted in a shared services VPC and exposed to project environments using a PrivateLink-powered endpoint.  The mirror will host approved Python packages that were retrieved from public package repositories and can be used by all internal Python applications, such as machine learning code running on SageMaker.
 
 The architecture will look like this:
 
 ![Shared Services Architecture](/images/sec-ds-architecture-simplified-v1.jpg)
 
----
+### Deploy your shared service
 
-## Enable the project administrators
-
-As a cloud platform engineering team member deploy the CloudFormation template linked below to provision a shared service VPC and Service Catalog portfolio.
+As a cloud platform engineering team member, deploy the CloudFormation template linked below to provision a shared service VPC and IAM roles.
 
 | Region | Launch Template |
 |:---:|:---|
-| Oregon (us-west-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-west-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Oregon {{% /button %}} |
-| Ohio (us-east-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Ohio {{% /button %}} |
-| N. Virginia (us-east-1) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-1/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS N. Virginia {{% /button %}} |
-| Ireland (eu-west-1) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-1/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Ireland {{% /button %}} |
-| London (eu-west-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS London {{% /button %}} |
-| Sydney (ap-southeast-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-ap-southeast-2/quickstart/ds_administration.yaml" icon="fas fa-play" %}} Deploy to AWS Sydney {{% /button %}} |
+| Oregon (us-west-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-west-2/quickstart/ds_administration.yaml&param_QuickstartMode=false" icon="fas fa-play" %}} Deploy to AWS Oregon {{% /button %}} |
+| Ohio (us-east-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-2/quickstart/ds_administration.yaml&param_QuickstartMode=false" icon="fas fa-play" %}} Deploy to AWS Ohio {{% /button %}} |
+| N. Virginia (us-east-1) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-1/quickstart/ds_administration.yaml&param_QuickstartMode=false" icon="fas fa-play" %}} Deploy to AWS N. Virginia {{% /button %}} |
+| Ireland (eu-west-1) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-1/quickstart/ds_administration.yaml&param_QuickstartMode=false" icon="fas fa-play" %}} Deploy to AWS Ireland {{% /button %}} |
+| London (eu-west-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-2/quickstart/ds_administration.yaml&param_QuickstartMode=false" icon="fas fa-play" %}} Deploy to AWS London {{% /button %}} |
+| Sydney (ap-southeast-2) | {{% button href="https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?stackName=secure-ds-core&templateURL=https://s3.amazonaws.com/sagemaker-workshop-cloudformation-ap-southeast-2/quickstart/ds_administration.yaml&param_QuickstartMode=false" icon="fas fa-play" %}} Deploy to AWS Sydney {{% /button %}} |
 
 Deployment should take around 5 minutes.
 
@@ -43,6 +43,44 @@ Deployment should take around 5 minutes.
 1. Under `Capabilities` click the 2 check boxes indicating you understand that the CloudFormation template will create IAM resources.
 1. Click `Create stack`
 {{% /expand %}}
+
+### Create Project Portfolio
+
+1. Access the Service Catalog console
+1. Click Portfolios on the left
+1. Click `Create portfolio`
+1. Enter a `Portfolio name` of `Data Science Project Portfolio`
+1. Enter a `Owner` of `Cloud Operations Team`
+1. Click the link for your new portfolio to view the portfolio's details
+1. Click the `Groups, roles, and users` tab
+1. Click `Add groups, roles, users`
+1. Click `Roles` and type `DataScienceAdmin` into the search field
+1. Tick the box next to your DataScienceAdministrator role and click `Add access`
+1. Click `Products`
+1. Click `Upload new product`
+1. Enter a `Product name` of `Data Science Environment`
+1. For `Owner` enter `Cloud Operations Team`
+1. Click `Use a CloudFormation template`
+1. For the `CloudFormation template URL` enter the appropriate URL from the list below:
+    - **Region ap-southeast-2**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-ap-southeast-2/quickstart/ds_environment.yaml` 
+    - **Region eu-west-1**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-1/quickstart/ds_environment.yaml` 
+    - **Region eu-west-2**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-2/quickstart/ds_environment.yaml` 
+    - **Region us-east-1**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-1/quickstart/ds_environment.yaml` 
+    - **Region us-east-2**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-2/quickstart/ds_environment.yaml` 
+    - **Region us-west-2**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-west-2/quickstart/ds_environment.yaml` 
+1. For `Version title` enter `v1`
+1. Click `Review` and `Create product`
+1. Click the radio button next to the new product and from the `Actions` drop down select `Add product to portfolio`
+1. Click the radio button for your product portfolio and click `Add Product to Portfolio`
+1. Return to the list of Portfolios by clicking `Portfolios` on the left
+1. Click the link for the data science portfolio
+1. Click the `Constraints` tab in the portfolio detail page
+1. Click `Create constraint`
+1. From the `Product` drop down select your product
+1. Select `Launch` for the `Constraint type`
+1. Under `Launch Constraint` click `Select IAM role`
+1. From the `IAM role` drop down select `ServiceCatalogLaunchRole`
+1. Click `Create`
 
 ---
 
