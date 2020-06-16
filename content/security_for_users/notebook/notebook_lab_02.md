@@ -28,7 +28,7 @@ Note that the Model Monitor is scheduled to execute periodically.  As a result y
 These graphics are generated using SageMaker Studio UI. 
 {{% /notice %}}
 
-The image below shows a sample Pandas dataframe showing some of the violations which Model Monitor can detect.
+The image below shows a sample Pandas dataframe showing some of the violations which Model Monitor can detect. Note, these may not be the exact final violations you see. For example, below we have also modified the Marriage column. 
 
 ![ModelMonitor DataFrame](/images/MM_dataframe.png)
 
