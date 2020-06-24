@@ -33,15 +33,17 @@ Data scientists often spend a lot of time exploring and preprocessing, or "wrang
 
 Model training includes both training and evaluating the model, as follows:
 
-   + **Training the model**—To train a model, you need an algorithm. The algorithm you choose depends on a number of factors. In Amazon SageMaker, you have the following options for a training algorithm:
+  + **Training the model**—To train a model, you need an algorithm. The algorithm you choose depends on a number of factors. In Amazon SageMaker, you have the following options for a training algorithm:
 
     + **Use an algorithm provided by Amazon SageMaker**—Amazon SageMaker provides training algorithms. If one of these meets your needs, it's a great out-of-the-box solution for quick model training. For a list of algorithms provided by Amazon SageMaker, see the [Amazon SageMaker documentation](https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html). You'll use some of the built-in SageMaker algorithms in the [Using Built-in Algorithms](../builtin.html) module.
+  
     + **Use Apache Spark with Amazon SageMaker**—Amazon SageMaker provides a library that you can use in Apache Spark to train models with Amazon SageMaker. Using the library provided by Amazon SageMaker is similar to using Apache Spark MLLib. For more information, see [Using Apache Spark with Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/apache-spark.html).
+  
     + **Submit custom code to train with deep learning frameworks**—You can submit custom Python code that uses TensorFlow or Apache MXNet for model training. You'll see an example of using Apache MXNet with Amazon SageMaker in the [Using Custom Algorithms](../custom.html) module.
+  
     + **Use your own custom algorithms**—Put your code together as a Docker image and specify the registry path of the image in an Amazon SageMaker `CreateTrainingJob` API call. For more information, see the [Amazon SageMaker documentation](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html). You'll see an example of how to use your own algorithm in the [Using Custom Algorithms](../custom.html) module.
 
-
-   + **Evaluating the model**—After you've trained your model, you evaluate it to determine whether the accuracy of the inferences is acceptable. You can evaluate your model using historical data (offline) or live data:
+  + **Evaluating the model**—After you've trained your model, you evaluate it to determine whether the accuracy of the inferences is acceptable. You can evaluate your model using historical data (offline) or live data:
 
     + **Offline testing**—Use historical, not live, data to send requests to the model for inferences.
       Deploy your trained model to an alpha endpoint, and use historical data to send inference requests to it. To send the requests, use a Jupyter notebook in your Amazon SageMaker notebook instance and either the AWS SDK for Python (Boto) or the high-level Python library provided by Amazon SageMaker.
