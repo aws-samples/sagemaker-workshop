@@ -8,9 +8,21 @@ Allowing users in the cloud to self-service and provision cloud resources on-dem
 
 ---
 
+## AWS Service Catalog
+
+[AWS Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html) allows you to create and manage collections of logical IT products and services that you have configured and parameterized as templates.  These IT template products and services can include everything from virtual machines, software deployment, and database creation to complete multi-tier application architectures. AWS Service Catalog allows you to centrally manage commonly deployed IT services, and helps you achieve consistent governance and meet your compliance requirements, while enabling users to quickly deploy only the approved IT services they need.
+
+AWS Service Catalog works by managing CloudFormation templates you provide, allowing users in your AWS environment to deploy the templates.  You control the templates themselves along with who can deploy or manage the templates and the resulting deployments.  With AWS Service Catalog you can control which IT services and versions are available, the configuration of the available services, and permission access by individual, group, department, or cost center.
+
+To get started you begin by creating a [portfolio](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios.html) which represents a collection of products and configuration information.  It allows you to specify who can access the products you define and how they can use them.
+
+Once you've created a portfolio you then begin to define [products](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_products.html) which describe a product or service that your users can deploy onto AWS.  A product will consist of one or more AWS resources like an Amazon EC2 instance, databases, or Jupyter notebooks.  These products are described through a CloudFormation template and can be tailored by the user at deployment time based upon the values of parameters you define for the user to configure.
+
+With resources deployed on the user's behalf you will then want to ensure that users can access those resources in an appropriate manner without being able to undo the best practice configurations deployed by Service Catalog.  To do this you can implement preventive controls in the form of identity and access management policies.
+
 ## Identity & Accesss Management
 
-AWS services are interacted with via a RESTful API.  Every call into this API is authorized by the [AWS Identity & Access Managment](https://aws.amazon.com/iam/) (IAM) service.  You control AWS IAM and grant users in your environment explit permissions to use various AWS services.  You grant explicit permissions through IAM policy documents which specify the principal (who), the actions (API calls), and the resources (such as S3 objects) that are allowed, as well as under what conditions such access is granted.  
+AWS services are interacted with via a RESTful API.  Every call into this API is authorized by the [AWS Identity & Access Managment](https://aws.amazon.com/iam/) (IAM) service.  You control AWS IAM and grant users in your environment explicit permissions to use various AWS services.  You grant explicit permissions through IAM policy documents which specify the principal (who), the actions (API calls), and the resources (such as S3 objects) that are allowed, as well as under what conditions such access is granted.  
 
 ```json
 {
@@ -45,18 +57,6 @@ Amazon SageMaker has a [comprehensive set of conditions and actions](https://doc
  - `sagemaker:DirectInternetAccess`, to ensure that notebooks do not have Internet access
  - `sagemaker:NetworkIsolation`, to ensure that models or training jobs cannot communicate with the network
 
- In this lab you will create an IAM role to allow project administrators to create cloud resources in an approved manner.
-
-## AWS Service Catalog
-
-[AWS Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html) allows you to create and manage collections of IT products and services that you have configured and parameterized.  These IT products and services can include everything from virtual machine images, servers, software, and databases to complete multi-tier application architectures. AWS Service Catalog allows you to centrally manage commonly deployed IT services, and helps you achieve consistent governance and meet your compliance requirements, while enabling users to quickly deploy only the approved IT services they need.
-
-AWS Service Catalog provides a single location where you can centrally manage catalogs of IT products and services. With AWS Service Catalog you can control which IT services and versions are available, the configuration of the available services, and permission access by individual, group, department, or cost center.
-
-To get started you begin by creating a [portfolio](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios.html) which represents a collection of products and configuration information.  It allows you to specify who can access the products you define and how they can use them.
-
-Once you've created a portfolio you then begin to define [products](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_products.html) which describe a product or service that your users can deploy onto AWS.  A product will consist of one or more AWS resources like an Amazon EC2 instance, databases, or Jupyter notebooks.  These products are described mostly through a CloudFormation template and can be altered by the user at deployment time based upon the values of parameters you define for the user to tailor.
-
 ---
 
-In this lab you will create an IAM role for the project administrators.  You will also create a Service Catalog portfolio and product, granting project administrators the ability to deploy data science environments using this product in Service Catalog.  You will also create a detective control (covered later) to detect any Amazon SageMaker resources that are run in a non-compliant manner.  Lastly you will create a PyPI mirror to provide private access to approved Python packages from the data science environments.
+In this lab you will create an IAM role for the project administrators.  You will also create a Service Catalog portfolio and product, granting project administrators the ability to deploy data science environments using this templated product in Service Catalog.  You will also create a detective control (covered later) to detect any Amazon SageMaker resources that are run in a non-compliant manner.  Lastly you will create a PyPI mirror to provide private access to approved Python packages from the data science environments.
