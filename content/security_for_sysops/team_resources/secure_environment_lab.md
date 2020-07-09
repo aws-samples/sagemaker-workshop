@@ -4,7 +4,7 @@ chapter = false
 weight = 11
 +++
 
-A data science project team have requested a cloud environment to begin their project.  As the project administrator you will use the Service Catalog portfolio, managed by the Cloud Platform Engineering team, to provision a secure VPC and related resources for the data science team.  In this lab, you will use Amazon Service Catalog to provision this data science environment.  Following the steps below create an environment which contains:
+A data science project team have requested a cloud environment to begin their project.  As a project administrator you will use the Service Catalog portfolio, managed by the Cloud Platform Engineering team, to provision a secure VPC and related resources for the data science team.  In this lab, you will use Amazon Service Catalog to provision this data science environment.  Following the steps below create an environment which contains:
 
  - AWS VPC with no IGW
  - VPC endpoints to Amazon S3, Amazon SageMaker, CloudWatch, STS
@@ -12,6 +12,8 @@ A data science project team have requested a cloud environment to begin their pr
  - Store AWS resource names/identifiers in AWS SSM Parameter Store for future reference
  - Service Catalog Portfolio of products for the data science users
  - AWS KMS key for encrypting data at rest
+ - Amazon S3 buckets dedicated to the project
+ - Amazon CodeCommit Git repository for project source code
 
 ## Deploy a project environment
 
