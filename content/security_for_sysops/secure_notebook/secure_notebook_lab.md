@@ -4,13 +4,13 @@ chapter = false
 weight = 31
 +++
 
-At this point, the cloud platform engineering team has built a self-service mechanism to provision secure environments to host data science projects.  The project administrator has provisioned resources using the self-service mechanism for your team to work, and they have provided you with a self-service mechanism to enable you to provision SageMaker notebooks.  Now, use these resources to provision a Jupyter notebook and start developing your ML solution.
+At this point, the cloud platform engineering team has built a self-service mechanism to provision secure environments to host data science projects.  The project administrators have provisioned resources using the self-service mechanism for your team to work, and they have provided you with a self-service mechanism to enable you to provision SageMaker notebooks.  Now, use these resources to provision a Jupyter notebook and start developing your ML solution.
 
 ---
 
 ## Launch the notebook product
 
-Navigate to the AWS Service Catalog console and on go to the detail page for the recently provisioned data science environment.  Use the hyperlink labeled AssumeProjectUserRole under Outputs to assume the role of a data science user. Assume the role and visit the [Service Catalog](https://console.aws.amazon.com/servicecatalog/home?#/products) product listing.  Using the notebook product defined for you by the project administrator, launch a Notebook product using the same project name that was used to create the environment.
+Navigate to the AWS Service Catalog console and on go to the detail page for the recently provisioned data science environment.  Use the hyperlink labeled `AssumeProjectUserRole` under *Outputs* to assume the role of a data science user. Assume the role and visit the [Service Catalog](https://console.aws.amazon.com/servicecatalog/home?#/products) product listing.  Using the notebook product defined for you by the project administrators, launch a Notebook product using the same project name that was used to create the environment.
 
 {{% expand "Step-by-step instructions" %}}
 1. Open the [Service Catalog](https://console.aws.amazon.com/servicecatalog/home?isSceuc=true#/stacks) provisioned products list.
@@ -34,13 +34,13 @@ You will land at a Provisioned Product page while the Service Catalog creates yo
 ![Provisioned Notebook Product](/images/provisioned_product.png)
 
 ## Access the notebook
-After the notebook has launched successfully you can open it by clicking the `NotebookUrl` hyperlink in the Outputs section of the provisoined notebook details page. With your Jupyter notebook open, familiarize yourself with the web interface and open the Notebook kernel named `00_SageMaker-SysOps-Workflow`.  Don't forget to reference back to the [Jupyter cheat sheet](https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet) for a quick reference.
+After the notebook has launched successfully you can open it by clicking the `NotebookUrl` hyperlink in the Outputs section of the provisoined notebook details page. With your Jupyter notebook open, familiarize yourself with the web interface and open the Notebook kernel named `00_SageMaker-SysOps-Workflow`.  Don't forget to reference back to the [Jupyter cheat sheet](https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet) for a quick reference if you need one.
 
 {{% notice info %}}
 When its open the Notebook kernel should use the `conda_python3` kernel.  If Jupyter asks you to set the kernel select `conda_python3` and if Jupyter displays an error, reload the Jupyter page by clicking your browser Refresh button.
 {{% /notice %}}
 
-Execute the steps in each of the cells of the notebook carefully, reading the text as you work through these notebooks until you get to ## Lab 4: Train Without VPC Configured. 
+Execute the steps in each of the cells of the notebook carefully, reading the text as you work through these notebooks until you get to **Lab 4: Train Without VPC Configured**. 
 
 Once that is complete, finish the rest of this notebook. 
 
