@@ -4,14 +4,16 @@ chapter = false
 weight = 11
 +++
 
-A data science project team have requested a cloud environment to begin their project.  As the project administrator you will use the Service Catalog portfolio, managed by the Cloud Platform Engineering team, to provision a secure VPC and related resources for the data science team.  In this lab, you will use Amazon Service Catalog to provision this data science environment.  Following the steps below create an environment which contains:
+A data science project team have requested a cloud environment to begin their project.  As a project administrator you will use the Service Catalog portfolio, managed by the Cloud Platform Engineering team, to provision a secure VPC and related resources for the data science team.  In this lab, you will use AWS Service Catalog to provision this data science environment.  By following the steps below you will create an environment which contains:
 
  - AWS VPC with no IGW
  - VPC endpoints to Amazon S3, Amazon SageMaker, CloudWatch, STS
- - IAM roles for the data science administrator and the data scientist
+ - IAM roles for the project's data science administrator and the data scientists
  - Store AWS resource names/identifiers in AWS SSM Parameter Store for future reference
- - Service Catalog Portfolio of products for the data science users
+ - Service Catalog Portfolio of products for the data science team
  - AWS KMS key for encrypting data at rest
+ - Amazon S3 buckets dedicated to the project
+ - Amazon CodeCommit Git repository for project source code
 
 ## Deploy a project environment
 
@@ -51,9 +53,9 @@ aws s3 sync s3://sagemaker-workshop-cloudformation-us-east-1/quickstart ./sagema
 
 After the CloudFormation stack has been successfully created review the **Resources** tab of the CloudFormation stack and the resources that were created.  You'll notice that it has provisioned:
 
- - **Service Catalog Portfolio**
+ - **Project-specific Service Catalog Portfolio**
 
-     A [service catalog portfolio](https://console.aws.amazon.com/servicecatalog/home) and products have been configured to give the data science teams tailored products they can deploy easily.
+     A [service catalog portfolio](https://console.aws.amazon.com/servicecatalog/home) and products have been configured to give the data science team a tailored set of products they can deploy easily.
 
  - **IAM roles**
 
@@ -73,4 +75,4 @@ After the CloudFormation stack has been successfully created review the **Resour
 
 ---
 
-You have now created a secure environment for the data science team. Lets now hand things back to the project team and let them support themselves.
+You have now created a secure environment for the data science team. Now hand things over to the project team and let them support themselves.

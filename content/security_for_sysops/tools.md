@@ -4,7 +4,7 @@ chapter = false
 weight = 2
 +++
 
-To work through these labs you will need 
+To work through these labs you will need: 
 
  - **An AWS account**
 
@@ -21,5 +21,7 @@ To work through these labs you will need
  - **Optional: AWS CLI**
 
      You may want to have the AWS CLI available for working with AWS services like Amazon S3.
+
+---
 
 Now, let's get started!

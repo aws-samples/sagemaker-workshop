@@ -4,7 +4,7 @@ chapter = false
 weight = 25
 +++
 
-As the cloud platform engineering team, begin by deploying a shared services VPC which will host a PyPI mirror of approved Python packages, for consumption by data science project teams.  Next create a Service Catalog Portfolio which the project administrators can use to easily deploy data science environments in support of new projects.
+Before you can begin creating templates for deployment by the Project Administration team you will need a shared services VPC to host a Python package mirror (PyPI) for use by data science teams.  The mirror will host a collection of approved Python packages.  The concept of a shared services VPC or PyPI mirror is not something that is detailed in this workshop, and is partially assumed as common practice among many AWS customers.  After you have created a shared services VPC and PyPI mirror you will then, as the Cloud Platform Engineering Team, create a Service Catalog Portfolio which the project administrators can use to easily deploy data science environments in support of new projects.
 
 {{% notice info %}}
 This lab assumes other recommended security practices such as enabling AWS CloudTrail and capturing VPC Flow Logs.  The contents of this lab focus soley on controls and guard rails directly related to data science resources.
@@ -14,13 +14,13 @@ This lab assumes other recommended security practices such as enabling AWS Cloud
 
 ## Shared Services architecture
 
-In this section you will quickly get started by deploying a shared PyPI mirror for use by data science project teams.  In addition to deploying a shared service this template will also create an IAM role for use by Service Catalog and for use by project administrators who are responsible for creating data science project environments.
+In this section you will quickly get started by deploying a shared PyPI mirror for use by data science project teams.  In addition to deploying a shared service this template will also create an IAM role for use by the AWS Service Catalog and for use by project administrators who are responsible for creating data science project environments.
 
-The shared PyPI mirror will be hosted in a shared services VPC and exposed to project environments using a PrivateLink-powered endpoint.  The mirror will host approved Python packages that were retrieved from public package repositories and can be used by all internal Python applications, such as machine learning code running on SageMaker.
+The shared PyPI mirror will be hosted in a shared services VPC and exposed to project environments using a PrivateLink-powered endpoint.  The mirror will host approved Python packages and can be used by all internal Python applications, such as machine learning code running on SageMaker.
 
-The architecture will look like this:
+The resulting architecture will look like this:
 
-![Shared Services Architecture](/images/sec-ds-architecture-simplified-v1.jpg)
+![Shared Services Architecture](/images/sec-ds-architecture-simplified-v2.png)
 
 ### Deploy your shared service
 
@@ -46,7 +46,19 @@ Deployment should take around 5 minutes.
 
 ### Create Project Portfolio
 
-1. Access the Service Catalog console
+With the shared services VPC online and available you now need to provide the project administration team with a configured Service Catalog to provision data science project environments.  To start, visit the [AWS Service Catalog console](https://console.aws.amazon.com/servicecatalog/home) and create a Portfolio.  Grant the DataScienceAdmin role permissions to access the portfolio adn then use the appropriate CloudFormation template linked below to create a Data Science Environment product.  Ensure that the product has a constraint applied to it that uses the IAM role ServiceCatalogLaunchRole to launch the product upon request.  This will give the Service Catalog service the permissions needed to create a Data Science Environment.
+
+**Service Catalog Product Templates by Region**:
+
+  - **Region ap-southeast-2**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-ap-southeast-2/quickstart/ds_environment.yaml` 
+  - **Region eu-west-1**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-1/quickstart/ds_environment.yaml` 
+  - **Region eu-west-2**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-2/quickstart/ds_environment.yaml` 
+  - **Region us-east-1**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-1/quickstart/ds_environment.yaml` 
+  - **Region us-east-2**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-2/quickstart/ds_environment.yaml` 
+  - **Region us-west-2**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-west-2/quickstart/ds_environment.yaml` 
+
+{{% expand "Step-by-Step instructions" %}}
+1. Access the [AWS Service Catalog console](https://console.aws.amazon.com/servicecatalog/home)
 1. Click Portfolios on the left
 1. Click `Create portfolio`
 1. Enter a `Portfolio name` of `Data Science Project Portfolio`
@@ -62,12 +74,6 @@ Deployment should take around 5 minutes.
 1. For `Owner` enter `Cloud Operations Team`
 1. Click `Use a CloudFormation template`
 1. For the `CloudFormation template URL` enter the appropriate URL from the list below:
-    - **Region ap-southeast-2**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-ap-southeast-2/quickstart/ds_environment.yaml` 
-    - **Region eu-west-1**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-1/quickstart/ds_environment.yaml` 
-    - **Region eu-west-2**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-eu-west-2/quickstart/ds_environment.yaml` 
-    - **Region us-east-1**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-1/quickstart/ds_environment.yaml` 
-    - **Region us-east-2**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-east-2/quickstart/ds_environment.yaml` 
-    - **Region us-west-2**, `https://s3.amazonaws.com/sagemaker-workshop-cloudformation-us-west-2/quickstart/ds_environment.yaml` 
 1. For `Version title` enter `v1`
 1. Click `Review` and `Create product`
 1. Click the radio button next to the new product and from the `Actions` drop down select `Add product to portfolio`
@@ -81,28 +87,27 @@ Deployment should take around 5 minutes.
 1. Under `Launch Constraint` click `Select IAM role`
 1. From the `IAM role` drop down select `ServiceCatalogLaunchRole`
 1. Click `Create`
+{{% /expand %}}
 
 ---
 
 ## Review team resources
 
-You have now created the following AWS resources to support the project administration team.  Please take a moment and review these resources and their configuration.
+In addition to the Service Catalog Portfolio and product you have also created the following AWS resources to support the project administration team.  Please take a moment and review these resources and their configuration.
 
-- **Amazon S3 buckets for training data and trained models**
+IAM roles
 
-    [Visit the S3 console](https://console.aws.amazon.com/s3/home) and see the Amazon S3 buckets that have been created for the team.  Take note of the bucket policy that has been applied to the data bucket.
+- **AWS IAM roles**
 
-- **AWS KMS key for encrypting data at rest**
+    The IAM roles for the project administration team and the Service Catalog have been created.  Visit the [AWS IAM console](https://console.aws.amazon.com/iam/home?#/roles) and review the permissions granted to these two roles.  
 
-    A KMS key to encrypt data at rest in the data science environment. [Visit the console](https://console.aws.amazon.com/kms/home?#/kms/home), who is allowed to take what actions on the keys created?
+- **AWS Lambda Detective Control**
+
+    An AWS Lambda has been deployed and configured to execute whenever an Amazon SageMaker resource is deployed.  The Lambda function will act as a detective control, inspecting launched resources to ensure that the resource is configured correctly.  To inspect the Lambda function and its triggers visit the [AWS Lambda console](https://console.aws.amazon.com/lambda/home?#/functions).  Can you determine exactly what types of events will cause the Lambda function to execute?
 
 - **Parameters added to Parameter Store**
 
-    A [parameter](https://console.aws.amazon.com/systems-manager/parameters) has been added to the collection in Parameter Store.  Can you see what parameter has been added?  How would you use this value?
-
-- **Service Catalog Jupyter Notebook product**
-
-    A [Service Catalog Portfolio](https://console.aws.amazon.com/servicecatalog/console?#portfolios) containing a best practice Jupyter notebook product has been configured to give the data science team members the ability to create resources on demand.
+    A collection of [parameters](https://console.aws.amazon.com/systems-manager/parameters) have been added to Parameter Store.  Can you see what parameters have been added?  How would you use these values?
 
 - **Shared Services VPC**
 
@@ -110,8 +115,8 @@ You have now created the following AWS resources to support the project administ
 
 - **PyPI Mirror Service**
 
-    A service has been created in Shared Services VPC that hosts a PyPI mirror server. This service is running on a cluster managed by Amazon Elastic Container Service (ECS). The actual server is running as a serverless container task on AWS Fargate. [Visit the ECS console](https://console.aws.amazon.com/ecs/home) to check whether the service is up and running. You can also see the task logs from the container through the ECS console to check its status.
+    A Python package mirror has been deployed as a containerised service in the Shared Services VPC. This service is running on a cluster managed by Amazon Elastic Container Service (ECS) Fargate which means there are no Amazon EC2 servers for you to manage.  [Visit the ECS console](https://console.aws.amazon.com/ecs/home) to check whether the service is up and running. You can also see the task logs from the container through the ECS console to check its status.
 
 ---
 
-With the resources created let's move on to Lab 2 where we will, as a project administrator, deploy a secure data science environment for a new project team.
+With these resources created you can now move on to Lab 2 where you will, as a project administrator, deploy a secure data science environment for a new project team.

@@ -10,15 +10,15 @@ Amazon SageMaker is a powerful enabler and a key component of a data science env
 
 ## Private Network Environment
 
-Let's begin with your Virtual Private Cloud (VPC) which will be used to host Amazon SageMaker and other components of your data science environment.  Your VPC provides a familiar set of network-level controls to allow you to govern ingress and egress of data.  We will begin this workshop by creating a VPC with no Internet Gateway (IGW), therefore all subnets will be private, without Internet connectivity.  Network connectivity with AWS services or your own shared services will be provided using [VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) and [PrivateLink](https://aws.amazon.com/privatelink/).  Security Groups will be used to control traffic between different resources, allowing you to group like resources together and manage their ingress and egress traffic.
+Let's begin with your Virtual Private Cloud (VPC) which will be used to host Amazon SageMaker and other components of your data science environment.  An AWS VPC provides a familiar set of network-level controls to allow you to govern ingress and egress of data.  You will begin this workshop by creating a shared services VPC with no Internet Gateway (IGW), therefore all subnets will be private, without Internet connectivity.  Network connectivity with AWS services or to your shared services from other VPCs will be provided using [VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) powered by [PrivateLink](https://aws.amazon.com/privatelink/).  Security Groups will be used to control traffic between different resources, allowing you to group like resources together and manage their ingress and egress traffic.
 
 In these labs you will create a VPC that:
 
 - Has no IGW or NAT gateway attached
 - Multiple subnets are defined across Availability Zones for resiliency
-- VPC Endpoints are configured to grant explicit access to Amazon SageMaker APIs, Amazon S3, STS, and CloudWatch Logs
+- VPC Endpoints are configured to grant explicit access to AWS services like Amazon SageMaker APIs, Amazon S3, STS, and CloudWatch Logs
 - Security Groups are configured to govern IP traffic and grant access to VPC endpoints
-- DNS Hostnames enabled on the VPC to support VPC endpoint hostname resolution
+- DNS Hostnames are enabled on the VPC to support VPC endpoint hostname resolution
 
 ## Authentication and Authorization
 
@@ -28,7 +28,7 @@ There are several IAM roles you will need in order to manage permissions and ens
 
 - **Data scientist user role** 
 
-    Granting Console access, start/stop Jupyter notebook, open Jupyter notebook
+    Granting Console access, permissions to start/stop a Jupyter notebook, permissions to open a Jupyter notebook
 
 - **Notebook creation role** 
 
@@ -40,7 +40,7 @@ There are several IAM roles you will need in order to manage permissions and ens
 
 - **Training / Transform job execution role** 
 
-    Used by Training Job or Batch Transform job to access AWS resources like Amazon S3
+    Used by Training Jobs or Batch Transform jobs to access AWS resources like Amazon S3
 
 - **Endpoint creation role** 
 
@@ -74,4 +74,4 @@ Using cloud services in a safe and responsible manner is good, but being able to
 
 ---
 
-Let's now dive into implementing these key areas.  You will start by creating a secure, private, network environment.
+Let's now dive into implementing these key areas.  You will start by creating a secure, private, network environment to host shared services along with a self-service mechanism to support project administrators.

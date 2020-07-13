@@ -4,6 +4,6 @@ chapter = true
 weight = 50
 +++
 
-In this module we will introduce you to the recommended practices for using Amazon SageMaker in a secure data science environment.  Like many other AWS services, Amazon SageMaker is secure by default.  By combining these secure by default services, by enforcing secure configurations, you will learn how you can create a data science environment that meets common security requirements for many customers.  We will cover various security topics and provide lab materials to exercise and explore the many security features available with Amazon SageMaker. 
+In this module we will introduce you to the recommended practices for building a secure data science environment powered by Amazon SageMaker.  Like many other AWS services, Amazon SageMaker is secure by default.  In these labs you will learn how to combine multiple secure by default services to enforce secure configurations and create a data science environment that meets common security requirements for many customers.  You will cover various security topics and work through hands-on lab materials to exercise and explore the many security features available with Amazon Web Services.
 
 Let's get started.

@@ -12,20 +12,19 @@ In this lab you will test a remediating detective control that was deployed by t
 
 As the data scientist, read through and execute the cells in the Jupyter Notebook kernel named `00_SageMaker-SysOps-Workflow.ipynb`.  These various cells will:
 
- - set variables to reference the *data* and *model* Amazon S3 buckets that the data science administrator created for your team
+ - set variables to reference the *data* and *model* Amazon S3 buckets that the administrators created for your team
  - copy training data to your local Jupyter notebook
- - preprocess the data locally and using SageMaker Processing and
+ - preprocess the data using SageMaker Processing 
  - push processed training data to your *data* S3 bucket
- - deploy your training container to ECR
  - configure a training job to be executed by you
  - Use SageMaker Experiments to track metadata of your training jobs
- - Use shap library to explain feature importances from your trained model
 
 When you reach the cell titled **Train without a VPC configured**, execute the cell and take note of the output.  After a few minutes you should notice that the training job was terminated.  The output should resemble the below which indicates that the training job did not complete its bootstrap.
 
 {{% expand "Step-by-step instructions" %}}
-1. Begin at the JupyterLabs interface of your notebook instance and execute the first cells of the notebook kernel
-1. After you have set the values for these two variables execute the cells up to and including the cell titled **Train without a VPC configured**.
+1. Begin at the JupyterLabs interface of your notebook instance and execute the first cells of the notebook kernel.
+1. Continue executing the cells through Sections A and B, until you reach Section C, Part 5.
+1. When you reach the cells titled **Train without a VPC configured**, pause - the following cells should fail after a period when you execute them.
 1. Watch the output of the training as it executes, and notice the job does not complete its bootstrap.
 {{% /expand %}}
 
@@ -65,7 +64,7 @@ TensorFlow(entry_point='predictor.py',
             ...
             )
 ```
-When the code has been modified execute the cell, the training job should complete successfully, producing output similar to the following:
+Execute the cell below the failed training job deployment titled **Traing with a VPC**, the training job should complete successfully, producing output similar to the following:
 
 ```logs
 2019-10-16 19:57:54 Starting - Starting the training job...
@@ -82,12 +81,4 @@ When the code has been modified execute the cell, the training job should comple
 
 In this lab, you experienced a remediating detective control deployed by the cloud platform engineering team and reconfigured the SageMaker training job to run connected to your VPC.  But waiting minutes to find out that your training job is going to error out is a slow and painful way to iterate during development.  
 
-Finish executing the rest of the cells in the notebook.
-
-Once you are done with this notebook, run through the second notebook 02_SageMaker-DevOps-Workflow. In this notebook, we will explore a different form of detective control: Model Monitoring.
-
-Model Monitoring is key to ensuring that our production endpoints are monitored against data drift or concept drift where the data or label distribution changes over time, degrading model performance. Run through the cells in the notebook to set up a production endpoint and deploy ModelMonitoring against this endpoint.
-
-Once you are done with this, be sure to delete your endpoints and ModelMonitoring to avoid racking up any costs. 
-
-You may  also proceed to the optional Lab on Preventative Controls. 
+In the next lab you will look into what preventive controls can be put in place to enhance your defense in depth and provide a better developer experience for the project team members.
