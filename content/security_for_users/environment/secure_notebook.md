@@ -87,4 +87,4 @@ Finally, to support collaboration, SageMaker notebooks can be integrated with Gi
 
 ---
 
-In this lab, as a data scientist, you will use a product in a portfolio defined by the Data Science Administration and create a Jupyter notebook for yourself following best practice.
+In this lab, as a data scientist, you will use the newly launched notebook to kickoff a new ML project.
