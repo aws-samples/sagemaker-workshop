@@ -40,11 +40,6 @@ After the notebook has launched successfully you can open it by clicking the `No
 When its open the Notebook kernel should use the `conda_python3` kernel.  If Jupyter asks you to set the kernel select `conda_python3` and if Jupyter displays an error, reload the Jupyter page by clicking your browser Refresh button.
 {{% /notice %}}
 
-Execute the steps in each of the cells of the notebook carefully, reading the text as you work through these notebooks until you get to **Lab 4: Train Without VPC Configured**. 
+---
 
-Once that is complete, finish the rest of this notebook. 
-
-## Takeaways
-
-Having completed the steps in both notebooks, you have learned how to build, train, deploy, and monitor models using Amazon SageMaker with security best practices. 
-
+You will now learn about methods for implementing detective and corrective controls on AWS.  In the next lab you will return to the Jupyter notebook to test the detective controls.
