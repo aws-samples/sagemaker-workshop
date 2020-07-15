@@ -62,4 +62,6 @@ To get the most of these labs it will be beneficial if you have prior experience
   
     SageMaker Processing can be used to run your scripts for pre-processing, feature engineering in a managed way where Amazon SageMaker sets up the underlying infrastructure needed to run your job at scale, tearing down the instances once the job is complete.
 
+---
+
 Now, let's get started!
