@@ -1,7 +1,7 @@
 +++
-title = "Overview of Notebook 02"
+title = "Lab 04: DevOps Workflow"
 chapter = false
-weight = 4
+weight = 30
 +++
 
 In notebook `02_SageMaker-DevOps-Workflow.ipynb`, you will complete the machine learning lifecycle and deliver a model into production.  As a DevOps Engineer you will pick up the model trained by the data scientists and deploy it as an endpoint.  You will also set up model monitoring on the endpoint for detecting data drift.  This notebook is primarily focused on two aspects of running machine learning models in production, monitoring the model's performance and being able to demonstrate the model's lineage.
@@ -51,12 +51,6 @@ As a best practice, you will commit the notebook to a git repo that is already p
 
 As you near the end of the notebook you will reach **Part 8: Lineage**. Here you will generate a dataframe that contains the lineage of your trained model, tagging the experiment with relevant Git commit ids and details. 
 
+---
 
-
-
-
-
-
-
-
-
+Congratulations, you have now taken raw data and an algorithm to produce a trained model for your business challenge.  You have deployed this model and monitored it for drift, with the ability to demonstrate the lineage of the model in terms of when it was trained, which version of the code was used, etc.  

@@ -1,7 +1,7 @@
 +++
 title = "Secure Notebooks"
 chapter = false
-weight = 30
+weight = 10
 +++
 
 Amazon SageMaker is designed to empower data scientists and developers, enabling them to build more quickly and remain focused on their machine learning project.  One of the ways that SageMaker does this is by providing hosted Jupyter Notebook servers.  With a single API call users can create a Jupyter Notebook server with the latest patches and kernels available.  No need to install software, patch or maintain systems - it is all done for you.  What the API creates for you is an EC2 instance running Jupyter Notebook server software with Python, R, Docker, and the most popular ML frameworks pre-installed.  But it is not just about convenience and enablement, SageMaker is also focused on hosting these notebooks for you in a secure manner.  
