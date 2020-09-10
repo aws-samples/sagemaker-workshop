@@ -94,10 +94,9 @@ a:hover {
   line-height: 150% !important;
 }
 
-#sidebar #footer h5.legal, #sidebar #footer p.build-number {
+#sidebar #footer h5.legal {
     font-size: 12px;
     letter-spacing: .20px;
-    line-height: 150% !important;
   }
 
 #body a.highlight:after {
