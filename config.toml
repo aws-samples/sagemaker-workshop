@@ -20,7 +20,7 @@ disableLanguageSwitchingButton = true
 disableShortcutsTitle=true
 
 [[menu.shortcuts]]
-name = "<i class='fa fa-twitter fa-lg'></i> @moviolone"
+name = "<i class='fab fa-twitter fa-lg'></i> @moviolone"
 identifier = "tw"
 url = "https://twitter.com/intent/user?screen_name=moviolone"
 weight = 1
