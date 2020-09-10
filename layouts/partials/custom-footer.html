@@ -1,1 +1,2 @@
 {{ template "_internal/google_analytics.html" . }}
+<script src="{{"js/shortbreadv1.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
