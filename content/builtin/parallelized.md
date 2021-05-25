@@ -71,7 +71,7 @@ In this section, you will learn about how to take full advantage of distributed 
     bucket=<name-of-your-s3-bucket>
     region=<your-region>
 
-    prefix=/sagemaker/data_distribution_types
+    prefix=/sagemaker/DEMO-data-distribution-types
     training_job_name=linear-replicated-`date '+%Y-%m-%d-%H-%M-%S'`
 
     training_data=$bucket$prefix/train
@@ -125,7 +125,7 @@ In this section, you will learn about how to take full advantage of distributed 
     bucket=<name-of-your-s3-bucket>
     region=<your-region>
 
-    prefix=/sagemaker/data_distribution_types
+    prefix=/sagemaker/DEMO-data-distribution-types
     training_job_name=linear-sharded-`date '+%Y-%m-%d-%H-%M-%S'`
 
     training_data=$bucket$prefix/train
@@ -169,6 +169,7 @@ In this section, you will learn about how to take full advantage of distributed 
       - Oregon:  174872318107.dkr.ecr.us-west-2.amazonaws.com/linear-learner:latest
       - Ohio:  404615174143.dkr.ecr.us-east-2.amazonaws.com/linear-learner:latest
       - Ireland:  438346466558.dkr.ecr.eu-west-1.amazonaws.com/linear-learner:latest
+      - For other regions, see [this](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html)
 
   - For the 'Location of model artifacts' field under **Primary Container**, enter the path to the output of your replicated training job.  To find the path, go back to your first browser tab, click **Jobs** in the left pane, then find and click the replicated job name, which will look like `linear-replicated-<date>`.  Scroll down to the **Outputs** section, then copy the path under 'S3 model artifact'.  Paste the path in the field; it should look like `s3://sagemaker-projects-pdx/sagemaker/data_distribution_types/linear-replicated-2018-03-11-18-13-13/output/model.tar.gz`.  
 

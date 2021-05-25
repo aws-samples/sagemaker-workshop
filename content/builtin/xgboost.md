@@ -57,6 +57,7 @@ This section also shows how to use SageMaker's built-in algorithms via hosted Ju
       - Oregon:  433757028032.dkr.ecr.us-west-2.amazonaws.com/xgboost:latest
       - Ohio:  825641698319.dkr.ecr.us-east-2.amazonaws.com/xgboost:latest
       - Ireland:  685385470294.dkr.ecr.eu-west-1.amazonaws.com/xgboost:latest
+      - For other regions, see [this](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html)
 
   - **bucket**:  the name of the S3 bucket you used in your notebook.  It should look like:  `s3://smworkshop-john-smith`.
 
