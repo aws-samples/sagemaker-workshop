@@ -71,7 +71,7 @@ In this section, you will learn about how to take full advantage of distributed 
     bucket=<name-of-your-s3-bucket>
     region=<your-region>
 
-    prefix=/sagemaker/data_distribution_types
+    prefix=/sagemaker/DEMO-data-distribution-types
     training_job_name=linear-replicated-`date '+%Y-%m-%d-%H-%M-%S'`
 
     training_data=$bucket$prefix/train
@@ -125,7 +125,7 @@ In this section, you will learn about how to take full advantage of distributed 
     bucket=<name-of-your-s3-bucket>
     region=<your-region>
 
-    prefix=/sagemaker/data_distribution_types
+    prefix=/sagemaker/DEMO-data-distribution-types
     training_job_name=linear-sharded-`date '+%Y-%m-%d-%H-%M-%S'`
 
     training_data=$bucket$prefix/train
